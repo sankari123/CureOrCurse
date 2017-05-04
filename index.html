@@ -57,10 +57,12 @@ function getExif() {
 	    EXIF.getData(img2, function() {
        // var allMetaData = EXIF.getAllTags(this,"GPSLatitude");
 	  //   var allMetaData = EXIF.getTag(this,"GPSLatitude");
+		 alert(EXIF.pretty(this));   
 	     tag1=EXIF.getTag(this,"GPSLatitudeRef");
 	    tag2=EXIF.getTag(this,"GPSLatitude");
 	   tag3=EXIF.getTag(this,"GPSLongitudeRef");
 	   tag4=EXIF.getTag(this,"GPSLongitude");
+		     alert("I was taken by a " + tag1 + " " +tag2);
 	//    var GeoTag=tag2+"!"+tag1+"!"+tag4+"!"+tag3;
 	    var makeAndModel = document.getElementById("allMetaDataSpan");
 	     makeAndModel.innerHTML=`${tag1} ${tag2} ${tag3} ${tag4}`;
