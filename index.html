@@ -51,7 +51,7 @@ else{
 
 	
 function getExif() {
-
+  alert('in');
     var img2 = document.getElementById("img2");
     EXIF.getData(img2, function() {
        // var allMetaData = EXIF.getAllTags(this,"GPSLatitude");
@@ -69,7 +69,7 @@ function getExif() {
     });
 //var stringArray = allMetaDataSpan.innerHTML.split('\t');
 	var stringArray = allMetaDataSpan.innerHTML;
-
+alert(stringArray);
 //meData=stringArray;
 
 	
@@ -189,7 +189,7 @@ alert('long'+lng1);
    
 		img.onload= drawImageScaled.bind(null, img, ctx);
 		img.src = imageURI;
-	  document.getElementById(img2).src = imageURI;
+	       document.getElementById(img2).src = imageURI;
 		 getExif() ;
     }
     function drawImageScaled(img, ctx) {
