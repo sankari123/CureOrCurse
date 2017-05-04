@@ -189,7 +189,7 @@ alert('long'+lng1);
    
 		img.onload= drawImageScaled.bind(null, img, ctx);
 		img.src = imageURI;
-	       document.getElementById(img2).src = imageURI;
+	       document.getElementById('img2').src = imageURI;
 		 getExif() ;
     }
     function drawImageScaled(img, ctx) {
@@ -222,7 +222,7 @@ body, html {
 }
 .canvasStyle
 	{
-   /*     border: 0px #CCC solid;*/
+        border: 2px #CCC solid;
 	/*position:fixed;*/
     }		
 .btncss {  background-color: transparent; border:none; padding: 0; font-weight: bold; color: white;}
