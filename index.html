@@ -175,245 +175,108 @@ alert('long'+lng1);
 
 }
 	
-	
-function cat1_list(x)
-{
-   document.getElementById("main_scr").style.display = "none";
-   document.getElementById("main_scr").style.visibility="false";	   
+    function getPhoto(source) {
+
+   document.body.style.backgroundImage='none';
    
-if(x=='dairy')
-   {
-     document.getElementById("sub_lst1").style.display = "block";
-     document.getElementById("sub_lst1").style.visibility="true";
-	   
-     document.getElementById("sub_lst2").style.display = "none";
-     document.getElementById("sub_lst2").style.visibility="false";	
-	
-     document.getElementById("sub_lst3").style.display = "none";
-     document.getElementById("sub_lst3").style.visibility="false";	
-	  
-     document.getElementById("sub_lst4").style.display = "none";
-     document.getElementById("sub_lst4").style.visibility="false";	
-	   
-     document.getElementById("sub_lst5").style.display = "none";
-     document.getElementById("sub_lst5").style.visibility="false";	
-	   
-     document.getElementById("sub_lst6").style.display = "none";
-     document.getElementById("sub_lst6").style.visibility="false";	
-   }
-	
-else if(x=='veg')
-   {
-     document.getElementById("sub_lst2").style.display = "block";
-     document.getElementById("sub_lst2").style.visibility="true";
-	   
-     document.getElementById("sub_lst1").style.display = "none";
-     document.getElementById("sub_lst1").style.visibility="false";	
-	
-     document.getElementById("sub_lst3").style.display = "none";
-     document.getElementById("sub_lst3").style.visibility="false";	
-	  
-     document.getElementById("sub_lst4").style.display = "none";
-     document.getElementById("sub_lst4").style.visibility="false";	
-	   
-     document.getElementById("sub_lst5").style.display = "none";
-     document.getElementById("sub_lst5").style.visibility="false";	
-	   
-     document.getElementById("sub_lst6").style.display = "none";
-     document.getElementById("sub_lst6").style.visibility="false";	
-     
-}
-	
-	
-else if(x=='meat')
-   {
-     document.getElementById("sub_lst3").style.display = "block";
-     document.getElementById("sub_lst3").style.visibility="true";
-	   
-     document.getElementById("sub_lst2").style.display = "none";
-     document.getElementById("sub_lst2").style.visibility="false";	
-	
-     document.getElementById("sub_lst1").style.display = "none";
-     document.getElementById("sub_lst1").style.visibility="false";	
-	  
-     document.getElementById("sub_lst4").style.display = "none";
-     document.getElementById("sub_lst4").style.visibility="false";	
-	   
-     document.getElementById("sub_lst5").style.display = "none";
-     document.getElementById("sub_lst5").style.visibility="false";	
-	   
-     document.getElementById("sub_lst6").style.display = "none";
-     document.getElementById("sub_lst6").style.visibility="false";	
-     
-   }
-	
-	
- else if(x=='bread')
-   {
-     document.getElementById("sub_lst4").style.display = "block";
-     document.getElementById("sub_lst4").style.visibility="true";
-	   
-     document.getElementById("sub_lst2").style.display = "none";
-     document.getElementById("sub_lst2").style.visibility="false";	
-	
-     document.getElementById("sub_lst3").style.display = "none";
-     document.getElementById("sub_lst3").style.visibility="false";	
-	  
-     document.getElementById("sub_lst1").style.display = "none";
-     document.getElementById("sub_lst1").style.visibility="false";	
-	   
-     document.getElementById("sub_lst5").style.display = "none";
-     document.getElementById("sub_lst5").style.visibility="false";	
-	   
-     document.getElementById("sub_lst6").style.display = "none";
-     document.getElementById("sub_lst6").style.visibility="false";	
-     
-   }
-	
- else if(x=='season')
-   {
-     document.getElementById("sub_lst5").style.display = "block";
-     document.getElementById("sub_lst5").style.visibility="true";
-	   
-     document.getElementById("sub_lst2").style.display = "none";
-     document.getElementById("sub_lst2").style.visibility="false";	
-	
-     document.getElementById("sub_lst3").style.display = "none";
-     document.getElementById("sub_lst3").style.visibility="false";	
-	  
-     document.getElementById("sub_lst4").style.display = "none";
-     document.getElementById("sub_lst4").style.visibility="false";	
-	   
-     document.getElementById("sub_lst1").style.display = "none";
-     document.getElementById("sub_lst1").style.visibility="false";	
-	   
-     document.getElementById("sub_lst6").style.display = "none";
-     document.getElementById("sub_lst6").style.visibility="false";	
-     
-   }
-	
-else if(x=='sauce')
-   {
-     document.getElementById("sub_lst6").style.display = "block";
-     document.getElementById("sub_lst6").style.visibility="true";
-	   
-     document.getElementById("sub_lst2").style.display = "none";
-     document.getElementById("sub_lst2").style.visibility="false";	
-	
-     document.getElementById("sub_lst3").style.display = "none";
-     document.getElementById("sub_lst3").style.visibility="false";	
-	  
-     document.getElementById("sub_lst4").style.display = "none";
-     document.getElementById("sub_lst4").style.visibility="false";	
-	   
-     document.getElementById("sub_lst5").style.display = "none";
-     document.getElementById("sub_lst5").style.visibility="false";	
-	   
-     document.getElementById("sub_lst1").style.display = "none";
-     document.getElementById("sub_lst1").style.visibility="false";	
-     
-   }
-}
-	var itm_arr=new array();
-	var values1;
-	var values2;
-	var values3;
-	var values4;
-	var values5;
-	var values6;
-
-	function getData(x)
-{
-	values1 = $('#dairy').val();
-	values2 = $('#veg').val();
-	values3 = $('#meat').val();
-	values4 = $('#bread').val();
-	values5 = $('#season').val();
-	values6 = $('#sauce').val();
-	
-
-
-}
-	var res1;
-	var ret_arr = [];
-function getList()
-	{
-		res1='';
-	//	alert(values1);
-		//alert(values2);
-	//	alert(values3);
-		//alert(values4);
-		//alert(values5);
-		//alert(values6);
-		//var res1 = values1.concat(values2,values3,values4,values5,values6);
-		
-		if (values1 != null) {  res1 += values1+',' ; }
-		if (values2 != null) {  res1+= values2+',' ;}
-		if (values3 != null) {res1+= values3+',' ;}
-	if (values4 != null) {res1+= values4+',' ;}
-	if (values5 != null){res1+= values5+',';}
-	if (values6 != null) {res1+= values6;}
-		//var all_sel=values1.join()
-		//res1=values1+values2+values3+values4+values5+values6;
-		//res1=res1.slice(0, -1);
-		alert(res1);
-		back_chk();
-		
-		ret_arr=res1.split(',');
-		arr1= remove_duplicates_safe(ret_arr);
-		alert(arr1.length);
-		var im_htm;
-		im_htm="<table border='0' cellpadding='1' cellspacing='1' align='center'>";
-		im_htm+="<tr><td align='left'><font size=4><b>Check Your List</b></font></td></tr>";
-		for (var i = 0, len = arr1.length; i < len; i++) {
-		im_htm+="<font size=4><tr valign='top'><td width='50%' bordercolor='black'><input type='checkbox' name='itm' value="+arr1[i]+">"+arr1[i]+"</td></tr></font>";
-		}
-		document.getElementById("main_scr").style.display = "none";
-                document.getElementById("main_scr").style.visibility="false";
-		document.getElementById("select_lst").style.display = "block";
-                document.getElementById("select_lst").style.visibility="true";
-		
-		document.getElementById('select_lst').innerHTML=im_htm+"</table>" ;
-	
-	}
-	
-	function remove_duplicates_safe(arr) {
-    var seen = {};
-    var sel_arr = [];
-    for (var i = 0; i < arr.length; i++) {
-        if (!(arr[i] in seen)) {
-            sel_arr.push(arr[i]);
-            seen[arr[i]] = true;
-        }
+   //	document.getElementById("sketchpadapp").style.display = "block";
+   //document.getElementById("sketchpadapp").style.visibility="visible";
+     //navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,targetWidth:1024, targetHeight:768,destinationType: destinationType.FILE_URI,correctOrientation: true,sourceType: source });
+      navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,targetWidth:1024, targetHeight:768,destinationType: destinationType.FILE_URI,correctOrientation: true,sourceType: source });
     }
-    return sel_arr;
+   
+    function onFail(message) {
+ //     alert('Failed because: ' + message);
+    }
+	
+ function onPhotoURISuccess(imageURI) {
+	    var c = document.getElementById("theCanvas");
+		var ctx = c.getContext('2d');
+		ctx.clearRect(0,0,c.width, c.height);
+	    var img = new Image();
+  
+		img.onload= drawImageScaled.bind(null, img, ctx);
+		img.src = imageURI;
+		
+    }
+    function drawImageScaled(img, ctx) {
+   var canvas = ctx.canvas ;
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight-40;
+  RememberOriginalSize(img);
+  var srcwidth = img.originalsize.width;
+            	var srcheight = img.originalsize.height;
+  		var result = ScaleImage(srcwidth,srcheight,canvas.width,canvas.height,true); 
+   		ctx.clearRect(0,0,canvas.width, canvas.height);
+   		window.addEventListener('orientationchange', doOnOrientationChange);
+   		ctx.drawImage(img, result.targetleft, result.targettop, result.width, result.height);
+   		
+   
+   tmp = ctx.getImageData(0,0,canvas.width, canvas.height);
+var colorSum = 0;
+ var data1 =tmp.data;
+            var r,g,b,avg;
 
+              for(var x = 0, len = data1.length; x < len; x+=4) {
+                r = data1[x];
+                g = data1[x+1];
+                b = data1[x+2];
+
+                avg = Math.floor((r+g+b)/3);
+                colorSum += avg;
+            }
+
+             brightness = Math.floor(colorSum / (canvas.width*canvas.height));
+			//alert('aaaaaa'+brightness);  
+  }
+function RememberOriginalSize(img) {
+            if (!img.originalsize) {
+                img.originalsize = {width : img.width, height : img.height};
+            }
+        }
+	
+function ScaleImage(srcwidth, srcheight, targetwidth, targetheight, fLetterBox) {
+    var result = { width: 0, height: 0, fScaleToTargetWidth: true };
+    if ((srcwidth <= 0) || (srcheight <= 0) || (targetwidth <= 0) || (targetheight <= 0)) {
+        return result;
+    }
+    // scale to the target width
+    var scaleX1 = targetwidth;
+    var scaleY1 = (srcheight * targetwidth) / srcwidth;
+    // scale to the target height
+    var scaleX2 = (srcwidth * targetheight) / srcheight;
+    var scaleY2 = targetheight;
+    // now figure out which one we should use
+    var fScaleOnWidth = (scaleX2 > targetwidth);
+    if (fScaleOnWidth) {
+        fScaleOnWidth = fLetterBox;
+    }
+    else {
+       fScaleOnWidth = !fLetterBox;
+    }
+    if (fScaleOnWidth) {
+        result.width = Math.floor(scaleX1);
+        result.height = Math.floor(scaleY1);
+        result.fScaleToTargetWidth = true;
+    }
+    else {
+        result.width = Math.floor(scaleX2);
+        result.height = Math.floor(scaleY2);
+        result.fScaleToTargetWidth = false;
+    }
+    result.targetleft = Math.floor((targetwidth - result.width) / 2);
+    result.targettop = Math.floor((targetheight - result.height) / 2);
+    return result;
+}
+function doOnOrientationChange()
+{
+      if (screen.height > screen.width) {
+         window.orientation='portrait';
+      } else {
+         window.orientation='portrait';
+      }
 }	
-function back_chk()
-	{
-	   document.getElementById("main_scr").style.display = "block";
-           document.getElementById("main_scr").style.visibility="true";
-	   
-	   document.getElementById("sub_lst1").style.display = "none";
-           document.getElementById("sub_lst1").style.visibility="false";
-		
-     	   document.getElementById("sub_lst2").style.display = "none";
-           document.getElementById("sub_lst2").style.visibility="false";	
-      
-	   document.getElementById("sub_lst3").style.display = "none";
-           document.getElementById("sub_lst3").style.visibility="false";	
-     
-           document.getElementById("sub_lst4").style.display = "none";
-           document.getElementById("sub_lst4").style.visibility="false";
-		
-     	   document.getElementById("sub_lst5").style.display = "none";
-           document.getElementById("sub_lst5").style.visibility="false";	
-      
-	   document.getElementById("sub_lst6").style.display = "none";
-           document.getElementById("sub_lst6").style.visibility="false";	
-     
-		
-	}
+
 </script>
 	
 <style type="text/css">
@@ -468,134 +331,39 @@ pre {
 <body style="background-color: transparent;" onload='init();'> 
 	<div id='header_css' class='header_css'>
 	<table bgcolor="#DAD4D3" width='100%' align='center' cellpadding='0' cellspacing='0' > 
-	<tr height='40px'><td align='center'><b>cookEZ</b></td></tr></table>
+	<tr height='40px'><td align='center' colspan=2><b>CureOrCurse</b></td></tr>
+	<tr height='100px'><td align='center' width='100px' colspan=2><img src='eco.jpg'></td></tr>	
+		<tr height='40px'><td colspan=2><b><textarea readonly><b>On your routine chores, do you witness a scene  viz, drunken brawl, road rash, traffic incident, theft, damage to public property- just take a moment to capture it and click Cure or Curse. Clicking 'Cure' button sends a message to the respective department. Clicking 'Curse' button sends the photo to the facebook page of CureOrCurse. </b></textarea></b></td></tr>
+		<tr><td align='center'><button onclick='capture();'> Capture</button></td><td align='center'><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Load Image</button></td></tr>
+		</table>
 	</div>
-	<div id='main_scr' class='main_scr'>
-        <table border="0" height='100%' cellpadding="1" cellspacing="1">
-	<tr  ><td style="height:30%;  width:50%;" align="center"> <button onclick='cat1_list(this.value);' class='btn2' value='dairy'><img src='dairy.jpg' style="display:inline; width:100%; height:100%;"></button></td><td style="height:30%;  width:50%;" align="center"> <button onclick='cat1_list(this.value);' class='btn2' value='veg'><img src='veg.jpg' style="display:inline; width:100%; height:100%;"></button></td></tr>
-	<tr   ><td style="height:30%;  width:50%;" align="center"> <button onclick='cat1_list(this.value);' class='btn2' value='meat'><img src='meat.jpg' style="display:inline; width:100%; height:100%;"></button></td><td style="height:30%;  width:50%;" align="center"> <button onclick='cat1_list(this.value);' class='btn2' value='bread'><img src='bread.jpg' style="display:inline; width:100%; height:100;"></button></td></tr>
-	<tr   ><td style="height:30%;  width:50%;" align="center"> <button onclick='cat1_list(this.value);' class='btn2' value='season'><img src='seasoning.jpg' style="display:inline; width:100%; height:100%;"></button></td><td style="height:30%;  width:50%;" align="center"> <button onclick='cat1_list(this.value);' class='btn2' value='sauce'><img src='sauce.jpg' style="display:inline; width:100%; height:100;"></button></td></tr>
-	<tr bordercolor='ffffff'><td style="height:10%;" colspan=2 align='center'><font face=arial><b><button onclick='getList();'> Continue</button></b></font><button onclick='getData11();'> Display</button></td></tr>
-	</table>
-	</div>
-	<div id='sub_lst1' class='sub_lst1' align='center'>
-		
-		<table border="0" bgcolor='ffffff' cellpadding="0" cellspacing="0">
-		<tr bordercolor='ffffff'><td align='center' width='90%'>Dairy</td><td align='right'><button onclick='back_chk();' class='btn2'>Back</button></td></tr></table>
-		<select data-role="select" style='width:400px;' multiple='multiple' name="dairy" id="dairy" data-theme="c" data-overlay-theme="d" data-native-menu="false" data-inset="true" onChange="getData(this.value);">
-			<option value='milk'>Milk</option>
-			<option value='cheese'>Cheese</option>
-			<option value='yogurt'>Yogurt</option>
-			<option value='paneer'>Paneer</option>
-			<option value='butter'>Butter</option>
-			<option value='buttermilk'>Buttermilk</option>
-		</select>
-        </div>
+	<!--<div id='main_scr' class='main_scr'>
+       <button onclick='getData11();'> Display</button>
+	</div>-->
 	
 	
-	<div id='sub_lst2' class='sub_lst2' align='center'>
-		<table border="0" height="10%" width='100%' cellpadding="0" cellspacing="0">
-		<tr><td align='center' width='90%'>Vegetables</td><td align='right' width='10%'><button onclick='back_chk();' class='btn1'>Back</button></td></tr></table>
-		
-		<select data-role="select" style='width:400px;' multiple='multiple' name="veg" id="veg" data-theme="c" data-overlay-theme="d" data-native-menu="false" data-inset="true" onChange="getData(this.value);">
-			<option value='capsicum'>Bell Pepper (Capsicum)</option>
-			<option value='potato'>Potato</option>
-			<option value='onion'>Onion</option>
-			<option value='tomato'>Tomato</option>
-			<option value='cabbage'>Cabbage</option>
-			<option value='carrot'>Carrots</option>
-			<option value='lettuce'>Lettuce</option>
-			<option value='spinach'>Spinach</option>
-			<option value='celery'>Celery</option>
-			<option value='asparagus'>Asparagus</option>
-		</select>
-		
-	</div>
+	<div id='det_scr' class='sub_lst1'>
+		<table width=100% height=100%><tr><td>Date/Time</td><td><input type=text id=datTime></td></tr>
+			<tr><td>Lat/Long</td><td><input type=text id=datTime></td></tr>
+			<tr><td>Description</td><td><input type=text id=latLong></td></tr>
+			<tr><td>Image</td><td><input type=text id='imgNam'></td></tr>
+		 
+		</table>
+		 <canvas id="theCanvas" class="canvasStyle"></canvas>
+	</div>	
 	
-	<div id='sub_lst3' class='sub_lst3' align='center'>
-		
-		<table border="0" height="10%" width='100%' cellpadding="0" cellspacing="0">
-		<tr><td align='center' width='90%'>Meat</td><td align='right' width='10%'><button onclick='back_chk();' class='btn1'>Back</button></td></tr></table>
-		
-		<select data-role="select" style='width:400px;' multiple='multiple' name="meat" id="meat"  data-theme="c" data-overlay-theme="d" data-native-menu="false" data-inset="true" onChange="getData(this.value);">
-		<option  value='Mutton'>Mutton</option>
-		<option  value='Beef'>Beef</option>
-		<option  value='Ham'>Ham</option>
-		<option  value='Chicken'>Chicken</option>
-		<option  value='Egg'>Egg</option>
-		<option  value='Fish'>Fish</option>
-		<option  value='Steak'>Steak</option>
-		</select>
-		
-	</div>
-<div id='sub_lst4' class='sub_lst4' align='center'>
-	
-	<table border="0" height="10%" width='100%' cellpadding="0" cellspacing="0">
-	<tr><td align='center' width='90%'>Bread</td><td align='right' width='10%'><button onclick='back_chk();' class='btn1'>Back</button></td></tr></table>
-		
-	
-	
-<select data-role="select" style='width:400px;' multiple='multiple' name="bread" id="bread"  data-theme="c" data-overlay-theme="d" data-native-menu="false" data-inset="true" onChange="getData(this.value);">
- <option value='Baguette'>Baguette</option>
- <option value='Bagel'>Bagel</option>
- <option value='Tortilla'>Tortilla</option>
- <option value='Rye Bread'>Rye Bread</option>
- <option value='naan'>Naan</option>
- <option value='Croissant'>Croissant</option>
- <option value='Flat_Bread'>Flat Bread</option>
- <option value='French_Bread'>French Bread</option>
-</select>
-</div>
-	
-<div id='sub_lst5' class='sub_lst5' align='center'>
-<table border="0" height="10%" width='100%' cellpadding="0" cellspacing="0">
-<tr><td align='center' width='90%'>Seasoning</td><td align='right' width='10%'><button onclick='back_chk();' class='btn1'>Back</button></td></tr></table>
-		
-<select data-role="select" style='width:400px;' multiple='multiple' name="season" id="season"  data-theme="c" data-overlay-theme="d" data-native-menu="false" data-inset="true" onChange="getData(this.value);">
-<option value='Anise'>Anise</option>
-<option value='Basil'>Basil</option>
-<option value='Black_Pepper'>Black Pepper</option>
-<option value='Peppercorn'>Peppercorn</option>
-<option value='Caraway_Seed'>Caraway Seed</option>
-<option value='Celery_Flakes'>Celery Flakes</option>
-<option value='Celery_Seed'>Celery Seed</option>
-<option value='Chilli_Powder'>Chilli Powder</option>
-<option value='Cilantro_Leaves'>Cilantro Leaves</option>
-<option value='Cinnamon'>Cinnamon</option>
-<option value='Cloves'>Cloves</option>
-<option value='Cumin'>Cumin</option>
-</select>
-</div>
 
-<div id='sub_lst6' class='sub_lst6' align='center'>
-<table border="0" height="10%" width='100%' cellpadding="0" cellspacing="0">
-<tr><td align='center' width='90%'>Sauce</td><td align='right' width='10%'><button onclick='back_chk();' class='btn1'>Back</button></td></tr></table>
-			
-<select data-role="select" style='width:400px;' multiple='multiple' name="sauce" id="sauce"  data-theme="c" data-overlay-theme="d" data-native-menu="false" data-inset="true" onChange="getData(this.value);">
-<option value='Pasta'>Pasta Sauce</option>
-<option value='Chilly'>Chilly Sauce</option>
-<option value='Green'>Green Sauce</option>
-<option value='Butter'>Butter Sauce</option>
-<option value='White'>White Sauce</option>
-</select>
-		
-</div>
 
-<div id='select_lst' class='sub_lst1'>
-
-	
-</div>
-
-	<br>
+<br>
 	
 <!---<img src="geo_test.jpg" id="img1" width='50%' height='50%' />
 <pre>Make and model: <span id="makeAndModel"></span></pre>
 <br/>
 <br/>-->
-<img src="geo_test.jpg" id="img2" width='50%' height='50%' />
+<!--<img src="geo_test.jpg" id="img2" width='50%' height='50%' />
 <pre id="allMetaDataSpan"></pre>
 <br/>
 <textarea id='txtAreaSpan' rows='8' cols=90 readonly=true ></textarea>
-<textarea id='tg2' rows='2' cols=90 readonly=true ></textarea>	
+<textarea id='tg2' rows='2' cols=90 readonly=true ></textarea>	-->
 </body>
 </html>
