@@ -49,9 +49,32 @@ else{
    else if (navigator.device) {
      navigator.device.exitApp(); } }	}
 
+img2.addEventListener('load', function() {
+    EXIF.getData(this, function() {
+        var make = EXIF.getTag(this, "Make"),
+            model = EXIF.getTag(this, "Model");
+        alert("I was taken by a " + make + " " + model);
+    });
+}
+
+	
+	
+	
+	function getExif1() {
+  alert('in');
+    var img2 = document.getElementById("img2");
+		
+		EXIF.getData(img2, function() {
+         var allMetaData = EXIF.getAllTags(this);
+         var allMetaDataSpan = document.getElementById("allMetaDataSpan");
+       allMetaDataSpan.innerHTML = JSON.stringify(allMetaData, null, "\t");
+    });
+	}
+	
+	
 	
 function getExif() {
- // alert('in');
+  alert('in');
     var img2 = document.getElementById("img2");
     
 	    EXIF.getData(img2, function() {
@@ -198,7 +221,7 @@ alert('long'+lng1);
 		img.onload= drawImageScaled.bind(null, img, ctx);
 		img.src = imageURI;
 	       document.getElementById('img2').src = imageURI;
-		 getExif() ;
+		 getExif1() ;
     }
     function drawImageScaled(img, ctx) {
    var canvas = ctx.canvas ;
@@ -280,8 +303,8 @@ pre {
 		<textarea id='txtAreaSpan' rows='8' cols=90 readonly=true ></textarea>
 <br/>
 	</div>	
-	
-
+<!---	null image 
+<img src="pixel.gif" onload="this.onload=null; this.src=getImagePath();" />--->
 
 <br>
 	
