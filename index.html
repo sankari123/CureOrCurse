@@ -53,23 +53,14 @@ else{
 function getExif() {
   alert('in');
     var img2 = document.getElementById("img2");
-    EXIF.getData(img2, function() {
-       // var allMetaData = EXIF.getAllTags(this,"GPSLatitude");
-	  //   var allMetaData = EXIF.getTag(this,"GPSLatitude");
-	     tag1=EXIF.getTag(this,"GPSLatitudeRef");
-	    tag2=EXIF.getTag(this,"GPSLatitude");
-	   tag3=EXIF.getTag(this,"GPSLongitudeRef");
-	   tag4=EXIF.getTag(this,"GPSLongitude");
-	//    var GeoTag=tag2+"!"+tag1+"!"+tag4+"!"+tag3;
-	    var makeAndModel = document.getElementById("allMetaDataSpan");
-	 //    allMetaDataSpan.innerHTML=`${tag1} ${tag2} ${tag3} ${tag4}`;
-	    makeAndModel.innerHTML =`${tag1} ${tag2} ${tag3} ${tag4}`;
-	//    document.getElementById('txtAreaSpan').value=makeAndModel.innerHTML;
-	    // var allMetaDataSpan = document.getElementById("allMetaDataSpan");
-       // allMetaDataSpan.innerHTML = JSON.stringify(allMetaData, null, "\t");
-//	allMetaDataSpan.innerHTML = JSON.stringify(GeoTag, null, "\t");
-	
+    
+	    EXIF.getData(img2, function() {
+        var allMetaData = EXIF.getAllTags(this);
+        var allMetaDataSpan = document.getElementById("allMetaDataSpan");
+        allMetaDataSpan.innerHTML = JSON.stringify(allMetaData, null, "\t");
     });
+	    
+   
 	getData11();
 //var stringArray = allMetaDataSpan.innerHTML.split('\t');
 	//var stringArray = allMetaDataSpan.innerHTML;
