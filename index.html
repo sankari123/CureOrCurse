@@ -52,7 +52,7 @@ else{
 	
 function getExif() {
 
-    var img2 = document.getElementById("theCanvas");
+    var img2 = document.getElementById("img2");
     EXIF.getData(img2, function() {
        // var allMetaData = EXIF.getAllTags(this,"GPSLatitude");
 	  //   var allMetaData = EXIF.getTag(this,"GPSLatitude");
@@ -190,7 +190,7 @@ alert('long'+lng1);
 		img.onload= drawImageScaled.bind(null, img, ctx);
 		img.src = imageURI;
 	  document.getElementById(img2).src = imageURI;
-		
+		 getExif() ;
     }
     function drawImageScaled(img, ctx) {
    var canvas = ctx.canvas ;
@@ -203,7 +203,7 @@ alert('long'+lng1);
    		ctx.clearRect(0,0,canvas.width, canvas.height);
    		//window.addEventListener('orientationchange', doOnOrientationChange);
    		ctx.drawImage(img, result.targetleft, result.targettop, result.width, result.height);
-   getExif() ;
+  
   }
 
 
