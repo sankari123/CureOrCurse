@@ -61,10 +61,10 @@ function getExif() {
 	   tag3=EXIF.getTag(this,"GPSLongitudeRef");
 	   tag4=EXIF.getTag(this,"GPSLongitude");
 	//    var GeoTag=tag2+"!"+tag1+"!"+tag4+"!"+tag3;
-	     var makeAndModel = document.getElementById("allMetaDataSpan");
-	     allMetaDataSpan.innerHTML=`${tag1} ${tag2} ${tag3} ${tag4}`;
+	    var makeAndModel = document.getElementById("allMetaDataSpan");
+	 //    allMetaDataSpan.innerHTML=`${tag1} ${tag2} ${tag3} ${tag4}`;
 	    makeAndModel.innerHTML =`${tag1} ${tag2} ${tag3} ${tag4}`;
-	    document.getElementById('txtAreaSpan').value=makeAndModel.innerHTML;
+	//    document.getElementById('txtAreaSpan').value=makeAndModel.innerHTML;
 	    // var allMetaDataSpan = document.getElementById("allMetaDataSpan");
        // allMetaDataSpan.innerHTML = JSON.stringify(allMetaData, null, "\t");
 //	allMetaDataSpan.innerHTML = JSON.stringify(GeoTag, null, "\t");
@@ -118,6 +118,7 @@ function ConvertDMSToDD(degrees, minutes, seconds, direction) {
 	
 function getData11() {
 	alert('Oops..! ');
+	
 //var x = new Array();
 //x = a.split(",");
 //array1 = tag2.split(",");
@@ -126,7 +127,7 @@ function getData11() {
 //alert(array1.length);	
 	var tg22=tag2.toString();
 	var tg33=tag4.toString();
-//alert('tag2= '+tg22+' tag1= '+tag1+' tag4= '+ tag4+' tag3 ='+ tag3);
+alert('tag2= '+tg22+' tag1= '+tag1+' tag4= '+ tag4+' tag3 ='+ tag3);
 //document.getElementById('txtAreaSpan').value=trim(stringArray);
 //document.getElementById('tg2').value=tg22;	
 	//array1 = listToArray(tag2, ',');
