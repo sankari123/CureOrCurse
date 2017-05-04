@@ -61,15 +61,18 @@ function getExif() {
 	   tag3=EXIF.getTag(this,"GPSLongitudeRef");
 	   tag4=EXIF.getTag(this,"GPSLongitude");
 	//    var GeoTag=tag2+"!"+tag1+"!"+tag4+"!"+tag3;
+	     var makeAndModel = document.getElementById("allMetaDataSpan");
 	     allMetaDataSpan.innerHTML=`${tag1} ${tag2} ${tag3} ${tag4}`;
-       // var allMetaDataSpan = document.getElementById("allMetaDataSpan");
+	    makeAndModel.innerHTML =`${tag1} ${tag2} ${tag3} ${tag4}`;
+	    document.getElementById('txtAreaSpan').value=makeAndModel.innerHTML;
+	    // var allMetaDataSpan = document.getElementById("allMetaDataSpan");
        // allMetaDataSpan.innerHTML = JSON.stringify(allMetaData, null, "\t");
 //	allMetaDataSpan.innerHTML = JSON.stringify(GeoTag, null, "\t");
 	
     });
 	getData11();
 //var stringArray = allMetaDataSpan.innerHTML.split('\t');
-	var stringArray = allMetaDataSpan.innerHTML;
+	//var stringArray = allMetaDataSpan.innerHTML;
 //alert(stringArray);
 //meData=stringArray;
 
@@ -84,7 +87,7 @@ function getExif() {
 //alert(meData);
 //var res = n.substring(n, searchTxt.length);
 //findMyText(res);
-document.getElementById('txtAreaSpan').value=stringArray;
+
 
 }
 	
@@ -136,7 +139,7 @@ array2.push(tag3);
    // Trim the excess whitespace.
  //  array1[i] = array1[i].replace(/^\s*/, "").replace(/\s*$/, "");
    // Add additional code here, such as:
- //  alert(array2[i]);
+ //alert(array2[i]);
 }
 	
 //alert(array2[0]);	
