@@ -57,8 +57,7 @@ else{
 	function getExif1() {
   alert('in');
     var img2 = document.getElementById("img2");
-		
-		EXIF.getData(img2, function() {
+	EXIF.getData(img2, function() {
          var allMetaData = EXIF.getAllTags(this);
          var allMetaDataSpan = document.getElementById("allMetaDataSpan");
        allMetaDataSpan.innerHTML = JSON.stringify(allMetaData, null, "\t");
@@ -68,7 +67,7 @@ else{
 	
 	
 function getExif() {
-  alert('in');
+  //alert('in');
     var img2 = document.getElementById("img2");
     
 	    EXIF.getData(img2, function() {
@@ -294,14 +293,16 @@ pre {
 		 <canvas id="theCanvas" class="canvasStyle"></canvas>
 		<img src="geo_test.jpg" id="img2" width='50%' height='50%' />
 <pre id="allMetaDataSpan"></pre>
-		<textarea id='txtAreaSpan' rows='8' cols=90 readonly=true ></textarea>
-<br/>
+		
 	</div>	
 <!---	null image 
 <img src="pixel.gif" onload="this.onload=null; this.src=getImagePath();" />--->
 
 <br>
-	
+	</body>
+</html>
+
+
 <!---<img src="geo_test.jpg" id="img1" width='50%' height='50%' />
 <pre>Make and model: <span id="makeAndModel"></span></pre>
 <br/>
@@ -311,5 +312,4 @@ pre {
 <br/>
 <textarea id='txtAreaSpan' rows='8' cols=90 readonly=true ></textarea>
 <textarea id='tg2' rows='2' cols=90 readonly=true ></textarea>	-->
-</body>
-</html>
+
