@@ -67,12 +67,13 @@ function getExif() {
 //	allMetaDataSpan.innerHTML = JSON.stringify(GeoTag, null, "\t");
 	
     });
+	getData11();
 //var stringArray = allMetaDataSpan.innerHTML.split('\t');
 	var stringArray = allMetaDataSpan.innerHTML;
 //alert(stringArray);
 //meData=stringArray;
 
-	getData11();
+	
 //Display Deg Minutes sec in google map
 //4330.4850 N represents 43 degrees 30 minutes and 48.50 seconds
 //08011.4392 W represents 80 degrees 11 minutes and 43.92 seconds
@@ -83,7 +84,7 @@ function getExif() {
 //alert(meData);
 //var res = n.substring(n, searchTxt.length);
 //findMyText(res);
-//document.getElementById('txtAreaSpan').value=stringArray;
+document.getElementById('txtAreaSpan').value=stringArray;
 
 }
 	
@@ -113,7 +114,7 @@ function ConvertDMSToDD(degrees, minutes, seconds, direction) {
   
 	
 function getData11() {
-//alert('Oops..! ');
+	alert('Oops..! ');
 //var x = new Array();
 //x = a.split(",");
 //array1 = tag2.split(",");
@@ -271,6 +272,7 @@ pre {
 		 <canvas id="theCanvas" class="canvasStyle"></canvas>
 		<img src="geo_test.jpg" id="img2" width='50%' height='50%' />
 <pre id="allMetaDataSpan"></pre>
+		<textarea id='txtAreaSpan' rows='8' cols=90 readonly=true ></textarea>
 <br/>
 	</div>	
 	
