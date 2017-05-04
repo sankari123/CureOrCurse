@@ -181,7 +181,8 @@ alert('long'+lng1);
     function getPhoto(source) {
 
    document.body.style.backgroundImage='none';
-   
+   document.getElementById("det_scr").visible=true;
+   document.getElementById("det_scr").display=block;	    
    //	document.getElementById("sketchpadapp").style.display = "block";
    //document.getElementById("sketchpadapp").style.visibility="visible";
      //navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,targetWidth:1024, targetHeight:768,destinationType: destinationType.FILE_URI,correctOrientation: true,sourceType: source });
@@ -209,59 +210,16 @@ alert('long'+lng1);
 //  RememberOriginalSize(img);
   var srcwidth = img.originalsize.width;
             	var srcheight = img.originalsize.height;
-  		var result = ScaleImage(srcwidth,srcheight,canvas.width,canvas.height,true); 
+  		//var result = ScaleImage(srcwidth,srcheight,canvas.width,canvas.height,true); 
    		ctx.clearRect(0,0,canvas.width, canvas.height);
-   		window.addEventListener('orientationchange', doOnOrientationChange);
+   		//window.addEventListener('orientationchange', doOnOrientationChange);
    		ctx.drawImage(img, result.targetleft, result.targettop, result.width, result.height);
    
   }
-function RememberOriginalSize(img) {
-            if (!img.originalsize) {
-                img.originalsize = {width : img.width, height : img.height};
-            }
-        }
+
+
+
 	
-function ScaleImage(srcwidth, srcheight, targetwidth, targetheight, fLetterBox) {
-    var result = { width: 0, height: 0, fScaleToTargetWidth: true };
-    if ((srcwidth <= 0) || (srcheight <= 0) || (targetwidth <= 0) || (targetheight <= 0)) {
-        return result;
-    }
-    // scale to the target width
-    var scaleX1 = targetwidth;
-    var scaleY1 = (srcheight * targetwidth) / srcwidth;
-    // scale to the target height
-    var scaleX2 = (srcwidth * targetheight) / srcheight;
-    var scaleY2 = targetheight;
-    // now figure out which one we should use
-    var fScaleOnWidth = (scaleX2 > targetwidth);
-    if (fScaleOnWidth) {
-        fScaleOnWidth = fLetterBox;
-    }
-    else {
-       fScaleOnWidth = !fLetterBox;
-    }
-    if (fScaleOnWidth) {
-        result.width = Math.floor(scaleX1);
-        result.height = Math.floor(scaleY1);
-        result.fScaleToTargetWidth = true;
-    }
-    else {
-        result.width = Math.floor(scaleX2);
-        result.height = Math.floor(scaleY2);
-        result.fScaleToTargetWidth = false;
-    }
-    result.targetleft = Math.floor((targetwidth - result.width) / 2);
-    result.targettop = Math.floor((targetheight - result.height) / 2);
-    return result;
-}
-function doOnOrientationChange()
-{
-      if (screen.height > screen.width) {
-         window.orientation='portrait';
-      } else {
-         window.orientation='portrait';
-      }
-}	
 
 </script>
 	
@@ -291,26 +249,6 @@ pre {
 
 
 .sub_lst1
-	{
-	display:none;
-	}
-.sub_lst2
-	{
-	display:none;
-	}
-.sub_lst3
-	{
-	display:none;
-	}
-.sub_lst4
-	{
-	display:none;
-	}
-.sub_lst5
-	{
-	display:none;
-	}
-.sub_lst6
 	{
 	display:none;
 	}	
