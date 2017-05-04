@@ -12,6 +12,8 @@
 <script type="text/javascript" src="cordova.js"></script>
 
 <script>
+	var pictureSource;   // picture source
+    var destinationType; // sets the format of returned value
 	var meData;
 	var tag1;
 	var tag2;
@@ -167,8 +169,8 @@ alert('long'+lng1);
     function getPhoto(source) {
 
    document.body.style.backgroundImage='none';
-   document.getElementById("det_scr").visible=true;
-   document.getElementById("det_scr").display=block;	    
+   document.getElementById("det_scr").style.visibility='true';
+   document.getElementById("det_scr").style.display='block';	    
    //	document.getElementById("sketchpadapp").style.display = "block";
    //document.getElementById("sketchpadapp").style.visibility="visible";
      //navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,targetWidth:1024, targetHeight:768,destinationType: destinationType.FILE_URI,correctOrientation: true,sourceType: source });
