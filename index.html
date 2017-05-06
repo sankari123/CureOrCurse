@@ -58,7 +58,8 @@ else{
   alert('in');
     var img21 = document.getElementById("img2");
 	EXIF.getData(img21, function() {
-         var allMetaData = EXIF.getAllTags(img21);
+		 alert(EXIF.pretty(this));
+         var allMetaData = EXIF.getAllTags(this);
          var allMetaDataSpan = document.getElementById("allMetaDataSpan");
        allMetaDataSpan.innerHTML = JSON.stringify(allMetaData, null, "\t");
     });
