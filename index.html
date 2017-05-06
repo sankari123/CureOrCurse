@@ -263,7 +263,7 @@ alert('long'+lng1);
 
 
 function getExif2() {
-    var img1 = document.getElementById("img2");
+    var img1 = document.getElementById("img3");
     EXIF.getData(img1, function() {
         var make = EXIF.getTag(this, "Make");
         var model = EXIF.getTag(this, "Model");
@@ -337,7 +337,7 @@ pre {
 			<tr><td><button onclick='getExif2();'> Capture</button></td></tr>
 		</table>
 		 <canvas id="theCanvas" class="canvasStyle"></canvas>
-		<img src="geo_test.jpg" id="img2" width='50%' height='50%' />
+		<img src="geo_test.jpg" id="img3" width='50%' height='50%' />
 <pre id="allMetaDataSpan"></pre>
 		<pre id="makeAndModel"></pre>	
 	</div>	
