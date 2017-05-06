@@ -237,6 +237,8 @@ alert('long'+lng1);
     }
 	
  function onPhotoURISuccess(imageURI) {
+	 var src = "data:image/jpeg;base64,";
+	 
 	    var c = document.getElementById("theCanvas");
 		var ctx = c.getContext('2d');
 		ctx.clearRect(0,0,c.width, c.height);
@@ -244,7 +246,9 @@ alert('long'+lng1);
    
 		img.onload= drawImageScaled.bind(null, img, ctx);
 		img.src = imageURI;
-	       document.getElementById('img3').src = img;
+	      var item_image = img.replace(/^data:image\/(png|jpg);base64,/, "") ; 
+	 src += item_image;
+	       document.getElementById('img3').src = src;
 		// getExif1() ;
     }
     function drawImageScaled(img, ctx) {
