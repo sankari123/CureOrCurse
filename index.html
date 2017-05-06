@@ -84,6 +84,10 @@ function test()
     var img21 = document.getElementById("img2");
 	EXIF.getData(img21, function() {
 		 alert(EXIF.pretty(this));
+		var aLat = EXIF.getTag(oImg, "GPSLatitude");
+		var aLong = EXIF.getTag(oImg, "GPSLongitude");
+		alert(aLat);
+		alert(aLong);
          var allMetaData = EXIF.getAllTags(this);
          var allMetaDataSpan = document.getElementById("allMetaDataSpan");
        allMetaDataSpan.innerHTML = JSON.stringify(allMetaData, null, "\t");
