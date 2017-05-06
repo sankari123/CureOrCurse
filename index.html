@@ -271,7 +271,7 @@ function getExif2() {
         makeAndModel.innerHTML = `${make} ${model}`;
     });
 
-    var img2 = document.getElementById("img2");
+    var img2 = document.getElementById("img3");
     EXIF.getData(img2, function() {
         var allMetaData = EXIF.getAllTags(this);
         var allMetaDataSpan = document.getElementById("allMetaDataSpan");
