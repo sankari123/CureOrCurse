@@ -49,7 +49,32 @@ else{
    else if (navigator.device) {
      navigator.device.exitApp(); } }	}
 
+function test()
+	{
+		
+		var oImg = document.getElementById("img2");
 
+	EXIF.getData(oImg, function() {
+			var aLat = EXIF.getTag(oImg, "GPSLatitude");
+			var aLong = EXIF.getTag(oImg, "GPSLongitude");
+
+			if (!(aLat && aLong)) return; // whoops, no GPS info
+
+			// convert from deg/min/sec to decimal for Google
+			var strLatRef = EXIF.getTag(oImg, "GPSLatitudeRef") || "N";
+			var strLongRef = EXIF.getTag(oImg, "GPSLongitudeRef") || "W";
+			var fLat = (aLat[0] + aLat[1]/60 + aLat[2]/3600) * (strLatRef == "N" ? 1 : -1);
+			var fLong = (aLong[0] + aLong[1]/60 + aLong[2]/3600) * (strLongRef == "W" ? -1 : 1);
+                          alert(fLat);
+		alert(fLong);
+			// center the google map and add a marker
+		//	oMap.setCenter(new GLatLng(fLat, fLong), 13);
+		//	oMarker = new GMarker(new GLatLng(fLat, fLong));
+		//	oMap.addOverlay(oMarker);
+		}
+	);
+}
+	
 
 	
 	
@@ -215,7 +240,7 @@ alert('long'+lng1);
 		img.onload= drawImageScaled.bind(null, img, ctx);
 		img.src = imageURI;
 	       document.getElementById('img2').src = imageURI;
-		 getExif1() ;
+		// getExif1() ;
     }
     function drawImageScaled(img, ctx) {
    var canvas = ctx.canvas ;
@@ -289,7 +314,7 @@ pre {
 			<tr><td>Lat/Long</td><td><input type=text id=datTime></td></tr>
 			<tr><td>Description</td><td><input type=text id=latLong></td></tr>
 			<tr><td>Image</td><td><input type=text id='imgNam'></td></tr>
-			<tr><td><button onclick='getExif1();'> Capture</button></td></tr>
+			<tr><td><button onclick='test();'> Capture</button></td></tr>
 		</table>
 		 <canvas id="theCanvas" class="canvasStyle"></canvas>
 		<img src="geo_test.jpg" id="img2" width='50%' height='50%' />
