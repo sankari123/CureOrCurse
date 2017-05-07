@@ -282,7 +282,7 @@ function getBase64FromImageUrl(url) {
         ctx.drawImage(this, 0, 0);
 
         var dataURL = canvas.toDataURL("image/png");
-        document.getElementById('img3').src =dataURL;
+        document.getElementById('img3').src =dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
         alert(dataURL.replace(/^data:image\/(png|jpg);base64,/, ""));
     };
 
