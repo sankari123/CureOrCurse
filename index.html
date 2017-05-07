@@ -251,7 +251,7 @@ alert('long'+lng1);
 	    //  src1 += item_image;
 	   //    document.getElementById('img3').src = imageURI;
 	 // document.getElementById('img3').src =src1;
-	 getBase64FromImageUrl(imageURI);
+	 document.getElementById('img3').src=getBase64FromImageUrl(imageURI);
 		// getExif2() ;
     }
     function drawImageScaled(img, ctx) {
@@ -282,8 +282,9 @@ function getBase64FromImageUrl(url) {
         ctx.drawImage(this, 0, 0);
 
         var dataURL = canvas.toDataURL("image/png");
-        document.getElementById('img3').src =dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+      //  document.getElementById('img3').src =dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
         alert(dataURL.replace(/^data:image\/(png|jpg);base64,/, ""));
+	    return (dataURL.replace(/^data:image\/(png|jpg);base64,/, ""));
     };
 
     img.src = url;
