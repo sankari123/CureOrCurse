@@ -270,7 +270,7 @@ alert('long'+lng1);
 	
 	
 function getExif2() {
-    var img1 = document.getElementById("img3");
+    var img1 = document.getElementById("theCanvas");
 	//var img2 = document.getElementById("img2");
     EXIF.getData(img1, function() {
         var make = EXIF.getTag(this, "Make");
