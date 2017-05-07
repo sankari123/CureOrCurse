@@ -246,13 +246,11 @@ alert('long'+lng1);
    
 		img.onload= drawImageScaled.bind(null, img, ctx);
 		img.src = imageURI;
-	// alert(imageURI);
+	alert(imageURI);
 	   // var item_image = img.replace(/^data:image\/(png|jpg);base64,/, "") ; 
 	    //  src1 += item_image;
-	   //    document.getElementById('img3').src = imageURI;
-	 // document.getElementById('img3').src =src1;
-	 document.getElementById('img3').src=getBase64FromImageUrl(imageURI);
-		// getExif2() ;
+	   document.getElementById('img3').src = imageURI;
+	
     }
     function drawImageScaled(img, ctx) {
    var canvas = ctx.canvas ;
@@ -268,27 +266,7 @@ alert('long'+lng1);
   
   }
 
-function getBase64FromImageUrl(url) {
-    var img = new Image();
 
-    img.setAttribute('crossOrigin', 'anonymous');
-
-    img.onload = function () {
-        var canvas = document.createElement("canvas");
-        canvas.width =this.width;
-        canvas.height =this.height;
-
-        var ctx = canvas.getContext("2d");
-        ctx.drawImage(this, 0, 0);
-
-        var dataURL = canvas.toDataURL("image/png");
-      //  document.getElementById('img3').src =dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
-        alert(dataURL.replace(/^data:image\/(png|jpg);base64,/, ""));
-	    return (dataURL.replace(/^data:image\/(png|jpg);base64,/, ""));
-    };
-
-    img.src = url;
-}
 	
 	
 function getExif2() {
