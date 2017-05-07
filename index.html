@@ -246,9 +246,10 @@ alert('long'+lng1);
    
 		img.onload= drawImageScaled.bind(null, img, ctx);
 		img.src = imageURI;
-	 //     var item_image = img.replace(/^data:image\/(png|jpg);base64,/, "") ; 
-	  //    src1 += item_image;
-	       document.getElementById('img3').src = imageURI;
+	    var item_image = img.replace(/^data:image\/(png|jpg);base64,/, "") ; 
+	      src1 += item_image;
+	   //    document.getElementById('img3').src = imageURI;
+	  document.getElementById('img3').src =src1;
 		// getExif2() ;
     }
     function drawImageScaled(img, ctx) {
