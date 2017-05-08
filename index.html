@@ -231,7 +231,7 @@ alert('long'+lng1);
      //navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,targetWidth:1024, targetHeight:768,destinationType: destinationType.FILE_URI,correctOrientation: true,sourceType: source });
  //   navigator.camera.getPicture(onSuccess1, onFail, { quality: 50, destinationType: Camera.DestinationType.FILE_URI });
  //  navigator.camera.getPicture(onSuccess, onFail, { quality: 50,targetWidth:1024, targetHeight:768,destinationType: destinationType.FILE_URI,correctOrientation: true,sourceType: source });
-navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,targetWidth:1024, targetHeight:768,destinationType: Camera.DestinationType.FILE_URI,correctOrientation: true,sourceType: source });
+navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,targetWidth:1024, targetHeight:768,destinationType: Camera.DestinationType.FILE_URI,correctOrientation: true,sourceType:Camera.PictureSourceType.CAMERA });
     }   
     function onFail(message) {
     //  alert('Failed because: ' + message);
@@ -239,9 +239,30 @@ navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,targetWidth
 function onPhotoURISuccess(result) {
 alert('in');	
 	alert(result);
-	
+	 var thisResult = JSON.parse(result);
+
+   // convert json_metadata JSON string to JSON Object 
+   var metadata = JSON.parse(thisResult.json_metadata);
+
+    var image = document.getElementById('myImage');
+    image.src = thisResult.filename;
+    if (thisResult.json_metadata != "{}") {
+        if (device.platform) == 'iOS') {
+
+          // notice the difference in the properties below and the format of the result when you run the app.
+          // iOS and Android return the exif and gps differently and I am not converting or accounting for the Lat/Lon reference.
+          // This is simply the raw data being returned.
+
+          alert('Lat: '+metadata.GPS.Latitude+' Lon: '+metadata.GPS.Longitude);
+        } else {
+           alert('Lat: '+metadata.gpsLatitude+' Lon: '+metadata.gpsLongitude);
+        }
+
+    }
 	
 
+	
+	
      
 }
 	
