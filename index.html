@@ -246,15 +246,13 @@ alert('in');
 
     var image = document.getElementById('img3');
     image.src = thisResult.filename;
-	if (thisResult.json_metadata != "{}") {
-        if (device.platform) == 'iOS') {
-
+	       
         alert('Lat: '+metadata.GPS.Latitude+' Lon: '+metadata.GPS.Longitude);
-        } else {
+      
          alert('Lat: '+metadata.gpsLatitude+' Lon: '+metadata.gpsLongitude);
-        }
+        
 
-    }
+    
    
 }
 	
