@@ -246,19 +246,7 @@ alert('in');
 
     var image = document.getElementById('img3');
     image.src = thisResult.filename;
-    if (thisResult.json_metadata != "{}") {
-        if (device.platform) == 'iOS') {
-
-          // notice the difference in the properties below and the format of the result when you run the app.
-          // iOS and Android return the exif and gps differently and I am not converting or accounting for the Lat/Lon reference.
-          // This is simply the raw data being returned.
-
-          alert('Lat: '+metadata.GPS.Latitude+' Lon: '+metadata.GPS.Longitude);
-        } else {
-           alert('Lat: '+metadata.gpsLatitude+' Lon: '+metadata.gpsLongitude);
-        }
-
-    }
+  alert(metadata);
 	
 
 	
