@@ -240,15 +240,14 @@ function onPhotoURISuccess(result) {
 alert('in');	
 	alert(result);
 	 var thisResult = JSON.parse(result);
-alert(thisResult);
+//alert(thisResult);
    // convert json_metadata JSON string to JSON Object 
    var metadata = JSON.parse(thisResult.json_metadata);
 
     var image = document.getElementById('img3');
     image.src = thisResult.filename;
 	       
-        alert('Lat: '+metadata.GPS.Latitude+' Lon: '+metadata.GPS.Longitude);
-      
+       
          alert('Lat: '+metadata.gpsLatitude+' Lon: '+metadata.gpsLongitude);
         
 
