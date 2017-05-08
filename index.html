@@ -230,6 +230,7 @@ alert('long'+lng1);
    //document.getElementById("sketchpadapp").style.visibility="visible";
      //navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,targetWidth:1024, targetHeight:768,destinationType: destinationType.FILE_URI,correctOrientation: true,sourceType: source });
     navigator.camera.getPicture(onSuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.FILE_URI });
+  
     }
    
     function onFail(message) {
@@ -242,7 +243,7 @@ function onSuccess(result) {
    // convert json_metadata JSON string to JSON Object 
    var metadata = JSON.parse(thisResult.json_metadata);
 
-    var image = document.getElementById('myImage');
+    var image = document.getElementById('img3');
     image.src = thisResult.filename
 
     if (thisResult.json_metadata != "{}") {
