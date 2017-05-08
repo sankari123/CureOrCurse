@@ -246,7 +246,7 @@ alert('in');
    var metadata = JSON.parse(thisResult.json_metadata);
 
     var image = document.getElementById('img3');
-    image.src = thisResult.filename
+    image.src = thisResult.filename;
 
     if (thisResult.json_metadata != "{}") {
         if (device.platform) == 'iOS') {
