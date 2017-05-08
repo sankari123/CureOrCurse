@@ -249,7 +249,7 @@ alert('long'+lng1);
 	alert(imageURI);
 	   // var item_image = img.replace(/^data:image\/(png|jpg);base64,/, "") ; 
 	    //  src1 += item_image;
-	   document.getElementById('img3').src = imageURI;
+	   document.getElementById('img3').src =img.src;
 	
     }
     function drawImageScaled(img, ctx) {
@@ -270,7 +270,7 @@ alert('long'+lng1);
 	
 	
 function getExif2() {
-    var img1 = document.getElementById("theCanvas");
+    var img1 = document.getElementById("img3");
 	//var img2 = document.getElementById("img2");
     EXIF.getData(img1, function() {
         var make = EXIF.getTag(this, "Make");
