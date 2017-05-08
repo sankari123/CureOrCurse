@@ -229,8 +229,7 @@ alert('long'+lng1);
    //	document.getElementById("sketchpadapp").style.display = "block";
    //document.getElementById("sketchpadapp").style.visibility="visible";
      //navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,targetWidth:1024, targetHeight:768,destinationType: destinationType.FILE_URI,correctOrientation: true,sourceType: source });
-    navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
-    destinationType: Camera.DestinationType.FILE_URI });
+    navigator.camera.getPicture(onSuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.FILE_URI });
     }
    
     function onFail(message) {
@@ -260,56 +259,13 @@ function onSuccess(result) {
 
     }
 }	
- function onPhotoURISuccess(imageURI) {
-	// var src1 = "data:image/jpeg;base64,";
-	 
-	    var c = document.getElementById("theCanvas");
-		var ctx = c.getContext('2d');
-		ctx.clearRect(0,0,c.width, c.height);
-	    var img = new Image();
-   
-		img.onload= drawImageScaled.bind(null, img, ctx);
-		img.src = imageURI;
-	alert(imageURI);
-	   // var item_image = img.replace(/^data:image\/(png|jpg);base64,/, "") ; 
-	    //  src1 += item_image;
-	   document.getElementById('img3').src =img.src;
-	
-    }
-    function drawImageScaled(img, ctx) {
-   var canvas = ctx.canvas ;
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight-40;
-//  RememberOriginalSize(img);
- // var srcwidth = img.originalsize.width;
-     //       	var srcheight = img.originalsize.height;
-  		//var result = ScaleImage(srcwidth,srcheight,canvas.width,canvas.height,true); 
-   		ctx.clearRect(0,0,canvas.width, canvas.height);
-   		//window.addEventListener('orientationchange', doOnOrientationChange);
-   		 ctx.drawImage(img, 0,0,canvas.width,canvas.height);
+ 
   
-  }
 
 
 	
 	
-function getExif2() {
-    var img1 = document.getElementById("img3");
-	//var img2 = document.getElementById("img2");
-    EXIF.getData(img1, function() {
-        var make = EXIF.getTag(this, "Make");
-        var model = EXIF.getTag(this, "Model");
-        var makeAndModel = document.getElementById("makeAndModel");
-        makeAndModel.innerHTML = `${make} ${model}`;
-    });
 
-//   var img2 = document.getElementById("img3");
-    EXIF.getData(img1, function() {
-      var allMetaData = EXIF.getAllTags(this);
-       var allMetaDataSpan = document.getElementById("allMetaDataSpan");
-       allMetaDataSpan.innerHTML = JSON.stringify(allMetaData, null, "\t");
-   });
-}
 	
 
 	
