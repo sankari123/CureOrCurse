@@ -249,10 +249,15 @@ alert('in');
 	       
        
          alert('Lat: '+metadata.gpsLatitude+' Lon: '+metadata.gpsLongitude);
-        
-
-    
-   
+         alert('Lat: '+metadata.gpsLatitudeRef+' Lon: '+metadata.gpsLongitudeRef);
+  	 lat1=metadata.gpsLatitude;
+         array1 = lat1.split(',');
+         lng1 =metadata.gpsLongitude;
+         array2 = lng1.split(',');
+   var lat2 = ConvertDMSToDD(parseFloat(array1[0]), parseFloat(array1[1]),parseFloat(array1[2]),array1[3]);	
+   var lng2 = ConvertDMSToDD(parseFloat(array2[0]), parseFloat(array2[1]),parseFloat(array2[2]),array2[3]);
+	alert('lat'+lat2);
+alert('long'+lng2);
 }
 	
 
