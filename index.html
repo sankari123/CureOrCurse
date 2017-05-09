@@ -303,6 +303,9 @@ pre {
 .sub_lst1
 	{
 	display:none;
+	position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0;
+	width: 100%;
 	}	
 	</style>
 	
@@ -323,32 +326,21 @@ pre {
 	
 	
 	<div id='det_scr' class='sub_lst1'>
-		<table width=100% height=100%>
+		<table width='100%'>
 			<tr><td>Date/Time</td><td><input type=text id=dat>&nbsp;<input type=text id=tim></td></tr>
 			<tr><td>Lat/Long</td><td><input type=text id=latVal>&nbsp;<input type=text id=lngVal></td></tr>
 			<tr><td>Description</td><td colspan=2><input type=text id=desc></td></tr>
 			<tr><td>Image</td><td colspan=2><textarea id='imgNam' rows=2 cols=30></textarea></td></tr>
-			<tr><td colspan=3><button onclick='getExif2();'> Cure</button>&nbsp;<button onclick='getExif2();'> Curse</button></td></tr>
-		</table>
-		 <canvas id="theCanvas" class="canvasStyle"></canvas>
-		<img src="geo_test.jpg" id="img3" width='50%' height='50%' />
-<pre id="allMetaDataSpan"></pre>
-		<pre id="makeAndModel"></pre>	
+	<tr><td colspan=3><button onclick='getExif2();'> Cure</button>&nbsp;<button onclick='getExif2();'> Curse</button></td></tr>
+		
+		<!-- <canvas id="theCanvas" class="canvasStyle"></canvas>-->
+			<tr><td colspan=3><img src="blank.png" id="img3" width='50%' height='50%' /></td></tr>
+ </table>
 	</div>	
 
 
-<br>
 	</body>
 </html>
 
 
-<!---<img src="geo_test.jpg" id="img1" width='50%' height='50%' />
-<pre>Make and model: <span id="makeAndModel"></span></pre>
-<br/>
-<br/>-->
-<!--<img src="geo_test.jpg" id="img2" width='50%' height='50%' />
-<pre id="allMetaDataSpan"></pre>
-<br/>
-<textarea id='txtAreaSpan' rows='8' cols=90 readonly=true ></textarea>
-<textarea id='tg2' rows='2' cols=90 readonly=true ></textarea>	-->
 
