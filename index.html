@@ -264,10 +264,10 @@ function onPhotoURISuccess(result) {
      //   alert('long'+lng2);
 	str1 = metadata.datetime.split(" ");
 	
-	document.getElementById('dat').value=trim(str1[0]);
-	document.getElementById('tim').value=trim(str1[1]);
-	document.getElementById('latVal').value=trim(lat2);
-	document.getElementById('lngVal').value=trim(lng2);
+	document.getElementById('dat').value=str1[0];
+	document.getElementById('tim').value=str1[1];
+	document.getElementById('latVal').value=lat2;
+	document.getElementById('lngVal').value=lng2;
 	document.getElementById('imgNam').value=thisResult.filename;
 }
 	
