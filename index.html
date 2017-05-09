@@ -326,7 +326,22 @@ border: 1px solid #CCC;
 font-size: 8px;
 font-family: Verdana;
 box-shadow: 1px 1px 5px #FFF;
-}	
+}
+#cure
+{
+width: 150px;
+height: 20px;
+border: 2px solid white;
+background-color:#CCC;
+}
+#cure:hover
+{
+width: 150px;
+height: 34px;
+border: 2px solid white;
+background-color:#000000;
+color:#fff;
+}
 	
 	</style>
 	
@@ -356,8 +371,8 @@ box-shadow: 1px 1px 5px #FFF;
 			<tr><td>Image</td><td colspan=2><textarea id='imgNam'  style='font-size: 10px;' rows=3 cols=20></textarea></td></tr>
 		
 		<!-- <canvas id="theCanvas" class="canvasStyle"></canvas>-->
-			<tr><td colspan=3 align='left'><img src="blank.png" id="img3" style="vertical-align:bottom;" width='50%' height='50%' /></td></tr>
-			<tr><td colspan=3 align='center'><button onclick='getExif2();'> Cure</button><button onclick='getExif2();'> Curse</button></td></tr>
+			<tr><td colspan=3 align='left'><img src="blank.png" id="img3" style="display:block; width:100%; height:auto;"  /></td></tr>
+			<tr><td colspan=3 align='center'><button id='cure' onclick='getExif2();'> Cure</button><button id='curse' onclick='getExif2();' > Curse</button></td></tr>
 	
  </table>
 	</div>	
