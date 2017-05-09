@@ -314,7 +314,6 @@ width: 200px;
 height: 29px;
 border-radius: 3px;
 border: 1px solid #CCC;
-font-weight: 10;
 font-size: 8px;
 font-family: Verdana;
 box-shadow: 1px 1px 5px #FFF;
@@ -345,7 +344,7 @@ box-shadow: 1px 1px 5px #FFF;
 	</div>
 	
 	<div id='det_scr' class='sub_lst1'>
-		<table width='100%' border='0'>
+		<table width='100%' border='1' cellpadding='1' cellspacing='1' > 
 			<tr><td colspan=3 align='center'><font size='3'>Cure Or Curse</font></td></tr>
 			<tr><td>Date/Time</td><td><input type=text id=dat style='font-size: 10px; width:100px;' ></td><td><input type=text id=tim style='font-size: 10px;  width:100px;' size='5'></td></tr>
 			<tr><td>Lat/Long</td><td><input type=text id=latVal style='font-size: 10px; width:100px;' ></td><td><input type=text id=lngVal style='font-size: 10px; width:100px;' ></td></tr>
@@ -358,7 +357,7 @@ box-shadow: 1px 1px 5px #FFF;
 			<tr><td>Image</td><td colspan=2><textarea id='imgNam'  style='font-size: 10px;' rows=3 cols=20></textarea></td></tr>
 		
 		<!-- <canvas id="theCanvas" class="canvasStyle"></canvas>-->
-			<tr><td colspan=3 align='left'><img src="blank.png" id="img3" style="vertical-align:bottom;" width="50%" height="50%" /></td></tr>
+			<tr><td colspan=3 align='left'><img src="blank.png" id="img3" style="vertical-align:bottom;" /></td></tr>
 			<tr><td colspan=3 align='center'><button onclick='getExif2();'> Cure</button></td><td><button onclick='getExif2();'> Curse</button></td></tr>
 	
  </table>
