@@ -306,6 +306,7 @@ pre {
 	position: absolute;
         top: 0; right: 0; bottom: 0; left: 0;
 	width: 100%;
+	font-size: 7px;
 	}	
 	</style>
 	
@@ -320,21 +321,18 @@ pre {
 		<tr><td align='center'><button onclick='getExif();'> Capture</button></td><td align='center'><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Load Image</button></td></tr>
 		</table>
 	</div>
-	<!--<div id='main_scr' class='main_scr'>
-       <button onclick='getData11();'> Display</button>
-	</div>-->
-	
 	
 	<div id='det_scr' class='sub_lst1'>
 		<table width='100%'>
-			<tr><td>Date/Time</td><td><input type=text id=dat>&nbsp;<input type=text id=tim></td></tr>
-			<tr><td>Lat/Long</td><td><input type=text id=latVal>&nbsp;<input type=text id=lngVal></td></tr>
-			<tr><td>Description</td><td colspan=2><input type=text id=desc></td></tr>
+			<tr><td>Date/Time</td><td><input type=text id=dat maxlength=10>&nbsp;<input type=text id=tim maxlength=10></td></tr>
+			<tr><td>Lat/Long</td><td><input type=text id=latVal maxlength=10>&nbsp;<input type=text id=lngVal maxlength=10></td></tr>
+			<tr><td>Description</td><td colspan=2><input type=text id=desc maxlength=10></td></tr>
 			<tr><td>Image</td><td colspan=2><textarea id='imgNam' rows=2 cols=30></textarea></td></tr>
-	<tr><td colspan=3><button onclick='getExif2();'> Cure</button>&nbsp;<button onclick='getExif2();'> Curse</button></td></tr>
 		
 		<!-- <canvas id="theCanvas" class="canvasStyle"></canvas>-->
 			<tr><td colspan=3><img src="blank.png" id="img3" width='50%' height='50%' /></td></tr>
+			<tr><td colspan=3><button onclick='getExif2();'> Cure</button>&nbsp;<button onclick='getExif2();'> Curse</button></td></tr>
+	
  </table>
 	</div>	
 
