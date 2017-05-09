@@ -262,6 +262,9 @@ alert('in');
    var lng2 = ConvertDMSToDD(parseFloat(array2[0]), parseFloat(array2[1]),parseFloat(array2[2]),array2[3]);
 	alert('lat'+lat2);
 alert('long'+lng2);
+	document.getElementById('datTime').value=metadata.datetime;
+	document.getElementById('latLong').value=lat2+' '+lng2;
+	document.getElementById('imgNam').value=thisResult.filename;
 }
 	
 
