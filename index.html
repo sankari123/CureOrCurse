@@ -237,8 +237,8 @@ navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,targetWidth
     //  alert('Failed because: ' + message);
     }
 function onPhotoURISuccess(result) {
-alert('in');	
-	alert(result);
+//alert('in');	
+//	alert(result);
 	 var thisResult = JSON.parse(result);
 //alert(thisResult);
    // convert json_metadata JSON string to JSON Object 
@@ -248,8 +248,8 @@ alert('in');
     image.src = thisResult.filename;
 	       
        
-         alert('Lat: '+metadata.gpsLatitude+' Lon: '+metadata.gpsLongitude);
-         alert('Lat: '+metadata.gpsLatitudeRef+' Lon: '+metadata.gpsLongitudeRef);
+        // alert('Lat: '+metadata.gpsLatitude+' Lon: '+metadata.gpsLongitude);
+      //   alert('Lat: '+metadata.gpsLatitudeRef+' Lon: '+metadata.gpsLongitudeRef);
 	 ltRef=metadata.gpsLatitudeRef;
 	lngRef=metadata.gpsLongitudeRef;
   	 lat1=metadata.gpsLatitude;
@@ -260,14 +260,14 @@ alert('in');
 	array2.push(lngRef);
         var lat2 = ConvertDMSToDD(parseFloat(array1[0]), parseFloat(array1[1]),parseFloat(array1[2]),array1[3]);	
         var lng2 = ConvertDMSToDD(parseFloat(array2[0]), parseFloat(array2[1]),parseFloat(array2[2]),array2[3]);
-	alert('lat'+lat2);
-        alert('long'+lng2);
+	//alert('lat'+lat2);
+     //   alert('long'+lng2);
 	str1 = metadata.datetime.split(" ");
 	
-	document.getElementById('dat').value=str1[0];
-	document.getElementById('tim').value=str1[1];
-	document.getElementById('latVal').value=lat2;
-	document.getElementById('lngVal').value=lng2;
+	document.getElementById('dat').value=trim(str1[0]);
+	document.getElementById('tim').value=trim(str1[1]);
+	document.getElementById('latVal').value=trim(lat2);
+	document.getElementById('lngVal').value=trim(lng2);
 	document.getElementById('imgNam').value=thisResult.filename;
 }
 	
@@ -324,6 +324,7 @@ pre {
 	
 	<div id='det_scr' class='sub_lst1'>
 		<table width='100%'>
+			<tr><td colspan=3 align='center'>Cure Or Curse</td></tr>
 			<tr><td>Date/Time</td><td><input type=text id=dat style='font-size: 10px;' size='5'>&nbsp;<input type=text id=tim style='font-size: 10px;' size='5'></td></tr>
 			<tr><td>Lat/Long</td><td><input type=text id=latVal style='font-size: 10px;' >&nbsp;<input type=text id=lngVal style='font-size: 10px;' ></td></tr>
 			<tr><td>Description</td><td colspan=2><input type=text id=desc maxlength=30  style='font-size: 10px;' ></td></tr>
