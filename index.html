@@ -258,12 +258,16 @@ alert('in');
          lng1 =metadata.gpsLongitude;
          array2 = lng1.split(',');
 	array2.push(lngRef);
-   var lat2 = ConvertDMSToDD(parseFloat(array1[0]), parseFloat(array1[1]),parseFloat(array1[2]),array1[3]);	
-   var lng2 = ConvertDMSToDD(parseFloat(array2[0]), parseFloat(array2[1]),parseFloat(array2[2]),array2[3]);
+        var lat2 = ConvertDMSToDD(parseFloat(array1[0]), parseFloat(array1[1]),parseFloat(array1[2]),array1[3]);	
+        var lng2 = ConvertDMSToDD(parseFloat(array2[0]), parseFloat(array2[1]),parseFloat(array2[2]),array2[3]);
 	alert('lat'+lat2);
-alert('long'+lng2);
-	document.getElementById('datTime').value=metadata.datetime;
-	document.getElementById('latLong').value=lat2+' '+lng2;
+        alert('long'+lng2);
+	str1 = metadata.datetime.split(" ");
+	
+	document.getElementById('dat').value=str1[0];
+	document.getElementById('tim').value=str1[1];
+	document.getElementById('latVal').value=lat2;
+	document.getElementById('lngVal').value=lng2;
 	document.getElementById('imgNam').value=thisResult.filename;
 }
 	
@@ -319,11 +323,12 @@ pre {
 	
 	
 	<div id='det_scr' class='sub_lst1'>
-		<table width=100% height=100%><tr><td>Date/Time</td><td><input type=text id=datTime></td></tr>
-			<tr><td>Lat/Long</td><td><input type=text id=datTime></td></tr>
-			<tr><td>Description</td><td><input type=text id=latLong></td></tr>
-			<tr><td>Image</td><td><input type=text id='imgNam'></td></tr>
-			<tr><td><button onclick='getExif2();'> Capture</button></td></tr>
+		<table width=100% height=100%>
+			<tr><td>Date/Time</td><td><input type=text id=dat>&nbsp;<input type=text id=tim></td></tr>
+			<tr><td>Lat/Long</td><td><input type=text id=latVal>&nbsp;<input type=text id=lngVal></td></tr>
+			<tr><td>Description</td><td colspan=2><input type=text id=desc></td></tr>
+			<tr><td>Image</td><td colspan=2><textarea id='imgNam' rows=2 cols=30></textarea></td></tr>
+			<tr><td colspan=3><button onclick='getExif2();'> Cure</button>&nbsp;<button onclick='getExif2();'> Curse</button></td></tr>
 		</table>
 		 <canvas id="theCanvas" class="canvasStyle"></canvas>
 		<img src="geo_test.jpg" id="img3" width='50%' height='50%' />
