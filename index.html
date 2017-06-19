@@ -238,8 +238,8 @@ navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,targetWidth
     //  alert('Failed because: ' + message);
     }
 function onPhotoURISuccess(result) {
-//alert('in');	
-//	alert(result);
+alert('in');	
+	alert(result);
 	 var thisResult = JSON.parse(result);
 //alert(thisResult);
    // convert json_metadata JSON string to JSON Object 
@@ -273,11 +273,7 @@ function onPhotoURISuccess(result) {
    // Add additional code here, such as:
  alert(array2[i]);
 }
-	document.getElementById('dat').value=str1[0];
-	document.getElementById('tim').value=str1[1];
-	document.getElementById('latVal').value=lat2;
-	document.getElementById('lngVal').value=lng2;
-	document.getElementById('imgNam').value=thisResult.filename;
+	
 }
 	
 
