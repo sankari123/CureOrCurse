@@ -261,10 +261,18 @@ function onPhotoURISuccess(result) {
 	array2.push(lngRef);
         var lat2 = ConvertDMSToDD(parseFloat(array1[0]), parseFloat(array1[1]),parseFloat(array1[2]),array1[3]);	
         var lng2 = ConvertDMSToDD(parseFloat(array2[0]), parseFloat(array2[1]),parseFloat(array2[2]),array2[3]);
-	//alert('lat'+lat2);
-     //   alert('long'+lng2);
+	alert('lat'+lat2);
+     alert('long'+lng2);
 	str1 = metadata.datetime.split(" ");
-	
+	alert(str1[0]);
+	alert(str1[1]);
+	alert(thisResult.filename);
+	for(var i = 0; i < array2.length; i++) {
+   // Trim the excess whitespace.
+ //  array1[i] = array1[i].replace(/^\s*/, "").replace(/\s*$/, "");
+   // Add additional code here, such as:
+ alert(array2[i]);
+}
 	document.getElementById('dat').value=str1[0];
 	document.getElementById('tim').value=str1[1];
 	document.getElementById('latVal').value=lat2;
