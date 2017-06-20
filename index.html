@@ -37,7 +37,7 @@ function onDeviceReady()
         destinationType=navigator.camera.DestinationType;
 document.addEventListener("backbutton", function (e) {
         e.preventDefault(); 
-    navigator.notification.confirm("Do you want to exit cookEZ?", onConfirmExit, "cookEZ", "Yes,No");
+    navigator.notification.confirm("Do you want to exit CureOrCurse?", onConfirmExit, "cookEZ", "Yes,No");
     }, false );
 }	
 	
@@ -53,7 +53,7 @@ else{
 function test()
 	{
 		
-		var oImg = document.getElementById("img2");
+		var oImg = document.getElementById("img3");
 
 	EXIF.getData(oImg, function() {
 			var aLat = EXIF.getTag(oImg, "GPSLatitude");
@@ -232,7 +232,7 @@ alert('long'+lng1);
      //navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,targetWidth:1024, targetHeight:768,destinationType: destinationType.FILE_URI,correctOrientation: true,sourceType: source });
  //   navigator.camera.getPicture(onSuccess1, onFail, { quality: 50, destinationType: Camera.DestinationType.FILE_URI });
  //  navigator.camera.getPicture(onSuccess, onFail, { quality: 50,targetWidth:1024, targetHeight:768,destinationType: destinationType.FILE_URI,correctOrientation: true,sourceType: source });
-navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,targetWidth:1024, targetHeight:768,destinationType: Camera.DestinationType.FILE_URI,correctOrientation: true,sourceType:source});
+navigator.camera.getPicture(onPhotoURISuccessNew, onFail, { quality: 50,targetWidth:1024, targetHeight:768,destinationType: Camera.DestinationType.FILE_URI,correctOrientation: true,sourceType:source});
     }   
     function onFail(message) {
     //  alert('Failed because: ' + message);
@@ -247,7 +247,7 @@ alert('in');
 
     var image = document.getElementById('img3');
     image.src = thisResult.filename;
-	       
+	     
        
         // alert('Lat: '+metadata.gpsLatitude+' Lon: '+metadata.gpsLongitude);
       //   alert('Lat: '+metadata.gpsLatitudeRef+' Lon: '+metadata.gpsLongitudeRef);
@@ -275,9 +275,19 @@ alert('in');
 }
 	
 }
-	
 
 	
+	
+function onPhotoURISuccessNew(result) {
+var thisResult = JSON.parse(result);
+//alert(thisResult);
+   // convert json_metadata JSON string to JSON Object 
+   var metadata = JSON.parse(thisResult.json_metadata);
+
+    var image = document.getElementById('img3');
+    image.src = thisResult.filename;
+	test();     
+	}
 </script>
 	
 <style type="text/css">
