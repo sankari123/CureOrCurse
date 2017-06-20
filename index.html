@@ -73,15 +73,13 @@ navigator.camera.getPicture(onPhotoURISuccessNew, onFail, { quality: 50,targetWi
 	
 function onPhotoURISuccessNew(result) {
 alert('in');	
-	alert(result);
+	alert('res   '+result);
 	 var thisResult = JSON.parse(result);
    // convert json_metadata JSON string to JSON Object 
    var metadata = JSON.parse(thisResult.json_metadata);
     var image = document.getElementById('img3');
     image.src = thisResult.filename;
 	alert('Lat: '+metadata.GPS.Latitude+' Lon: '+metadata.GPS.Longitude);
-
-    
 	    EXIF.getData(image, function() {
        // var allMetaData = EXIF.getAllTags(this,"GPSLatitude");
 	  //   var allMetaData = EXIF.getTag(this,"GPSLatitude");
