@@ -79,7 +79,28 @@ alert('in');
    var metadata = JSON.parse(thisResult.json_metadata);
     var image = document.getElementById('img3');
     image.src = thisResult.filename;
-	alert('Lat: '+thisResult.gpsLatitude+' Lon: '+thisResult.gpsLatitude);
+	
+
+        if (thisResult.json_metadata != "{}") {
+            if (device.platform == 'iOS') {
+
+                // notice the difference in the properties below and the format of the result when you run the app.
+                // iOS and Android return the exif and gps differently and I am not converting or accounting for the Lat/Lon reference.
+                // This is simply the raw data being returned.
+
+                navigator.notification.alert('Lat: '+metadata.GPS.Latitude+' Lon: '+metadata.GPS.Longitude);
+             //   var ima = document.getElementById('img3');
+            //    var ima_exif = document.getElementById('exif');
+          //      ima.innerHTML = "<input type='hidden' name='photo' id='photo' value='" + image.src + "' disabled='disabled'>";
+            //    ima_exif.innerHTML = ph_exif; // SHOW EXIF
+            } else {
+                navigator.notification.alert('Lat: '+metadata.gpsLatitude+' Lon: '+metadata.gpsLongitude+'<br> file:'+image+'oppure'+image.src);
+              //  var ima = document.getElementById('img3');
+             //   var ima_exif = document.getElementById('exif');
+            //    ima.innerHTML = "<input type='hidden' name='photo' id='photo' value='" + image.src + "' disabled='disabled'>";
+            //    ima_exif.innerHTML = ph_exif; // SHOW EXIF
+            }
+        }
 	   
 	    
 	}
