@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CureOrCurse</title>
+
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
+	
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>	
+<script type="text/javascript" charset="utf-8" src="Canvas2ImagePlugin.js"></script>
+<script src="exif.js"></script>
+<script type="text/javascript" src="cordova.js"></script>
+
+<script>
+	var pictureSource;   // picture source
+    var destinationType; // sets the format of returned value
+	var meData;
+	var tag1;
+	var tag2;
+	var tag3;
+	var tag4;
+	var array1=  new Array();
+	var array2=  new Array();
+function alertDismissed() {
+           alert('ddd');
+}	
+function init() {
+	
+    	document.addEventListener("deviceready", onDeviceReady, false);
+}
+	
+function onDeviceReady()
+{	
+//window.plugins.spinnerDialog.show(null,'Loading Data... Please wait!');
+	pictureSource=navigator.camera.PictureSourceType;
+        destinationType=navigator.camera.DestinationType;
+document.addEventListener("backbutton", function (e) {
+        e.preventDefault(); 
+    navigator.notification.confirm("Do you want to exit CureOrCurse?", onConfirmExit, "cookEZ", "Yes,No");
+    }, false );
+}	
+	
+function onConfirmExit(button) {
+if(button==2){ //If User select a No, then return back;
+       	return; }
+else{
+   if (navigator.app) {
+     navigator.app.exitApp(); }
+   else if (navigator.device) {
+     navigator.device.exitApp(); } }	}
+function test()
+	{
+		
+		alert('in');
+		var oImg = document.getElementById("img3");
+	EXIF.getData(oImg, function() {
+			var aLat = EXIF.getTag(oImg, "GPSLatitude");
+			var aLong = EXIF.getTag(oImg, "GPSLongitude");
+			if (!(aLat && aLong)) return; // whoops, no GPS info
+			// convert from deg/min/sec to decimal for Google
+			var strLatRef = EXIF.getTag(oImg, "GPSLatitudeRef") || "N";
+			var strLongRef = EXIF.getTag(oImg, "GPSLongitudeRef") || "W";
+			var fLat = (aLat[0] + aLat[1]/60 + aLat[2]/3600) * (strLatRef == "N" ? 1 : -1);
+			var fLong = (aLong[0] + aLong[1]/60 + aLong[2]/3600) * (strLongRef == "W" ? -1 : 1);
+                          alert(fLat);
+		alert(fLong);
+			// center the google map and add a marker
+		//	oMap.setCenter(new GLatLng(fLat, fLong), 13);
+		//	oMarker = new GMarker(new GLatLng(fLat, fLong));
+		//	oMap.addOverlay(oMarker);
+		}
+	);
+}
+	
+	
+	
+	
+	function getExif1() {
+  alert('in');
+    var img21 = document.getElementById("img2");
+	EXIF.getData(img21, function() {
+		 alert(EXIF.pretty(this));
+		var aLat = EXIF.getTag(img21, "GPSLatitude");
+		var aLong = EXIF.getTag(img21, "GPSLongitude");
+		alert(aLat);
+		alert(aLong);
+         var allMetaData = EXIF.getAllTags(this);
+         var allMetaDataSpan = document.getElementById("allMetaDataSpan");
+		alert(allMetaData);
+       allMetaDataSpan.innerHTML = JSON.stringify(allMetaData, null, "\t");
+    });
+	}
+	
+	
+	
+function getExif() {
+  //alert('in');
+    var img2 = document.getElementById("img3");
+    
+	    EXIF.getData(img2, function() {
+       // var allMetaData = EXIF.getAllTags(this,"GPSLatitude");
+	  //   var allMetaData = EXIF.getTag(this,"GPSLatitude");
+		 var allMetaData = EXIF.getAllTags(this);
+ var allMetaDataSpan = document.getElementById("allMetaDataSpan");
+  allMetaDataSpan.innerHTML = JSON.stringify(allMetaData, null, "\t");
+	     tag1=EXIF.getTag(this,"GPSLatitudeRef");
+	    tag2=EXIF.getTag(this,"GPSLatitude");
+	   tag3=EXIF.getTag(this,"GPSLongitudeRef");
+	   tag4=EXIF.getTag(this,"GPSLongitude");
+		     alert("I was taken by a " + tag1 + " " +tag2);
+	//    var GeoTag=tag2+"!"+tag1+"!"+tag4+"!"+tag3;
+	  //  var makeAndModel = document.getElementById("allMetaDataSpan");
+	 //    makeAndModel.innerHTML=`${tag1} ${tag2} ${tag3} ${tag4}`;
+    });
+	    
+   
+//	getData11();
+//var stringArray = allMetaDataSpan.innerHTML.split('\t');
+	//var stringArray = allMetaDataSpan.innerHTML;
+//alert(stringArray);
+//meData=stringArray;
+	
+//Display Deg Minutes sec in google map
+//4330.4850 N represents 43 degrees 30 minutes and 48.50 seconds
+//08011.4392 W represents 80 degrees 11 minutes and 43.92 seconds
+//so that's GLatLng(43.513472,-80.195533)
+//Pine Ridge Park, Guelph, Ontario
+//http://maps.google.com/maps?q=43+30+48.50,-80+11+43.92
+//alert(meData);
+//var res = n.substring(n, searchTxt.length);
+//findMyText(res);
+}
+	
+function ConvertDMSToDD(degrees, minutes, seconds, direction) {
+    var dd = degrees + minutes/60 + seconds/(60*60);
+    if (direction == "S" || direction == "W") {
+        dd = dd * -1;
+    } // Don't do anything for N or E
+    return dd;
+}
+ function GetAddress(lat,lng) {
+         //   var lat = parseFloat(document.getElementById("txtLatitude").value);
+          //  var lng = parseFloat(document.getElementById("txtLongitude").value);
+            var latlng = new google.maps.LatLng(lat, lng);
+            var geocoder = geocoder = new google.maps.Geocoder();
+            geocoder.geocode({ 'latLng': latlng }, function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    if (results[1]) {
+                        alert("Location: " + results[1].formatted_address);
+                    }
+                }
+            });
+        }
+  
+	
+function getData11() {
+	alert('Oops..! ');
+	
+//var x = new Array();
+//x = a.split(",");
+//array1 = tag2.split(",");
+//array2 = tag4.split(",");
+//alert(array1[0]);
+//alert(array1.length);	
+	var tg22=tag2.toString();
+	var tg33=tag4.toString();
+alert('tag2= '+tg22+' tag1= '+tag1+' tag4= '+ tag4+' tag3 ='+ tag3);
+//document.getElementById('txtAreaSpan').value=trim(stringArray);
+//document.getElementById('tg2').value=tg22;	
+	//array1 = listToArray(tag2, ',');
+array1 = tg22.split(',');
+array2 = tg33.split(',');
+array1.push(tag1);
+array2.push(tag3);
+//for(var i = 0; i < str_array.length; i++) {
+	for(var i = 0; i < array2.length; i++) {
+   // Trim the excess whitespace.
+ //  array1[i] = array1[i].replace(/^\s*/, "").replace(/\s*$/, "");
+   // Add additional code here, such as:
+ //alert(array2[i]);
+}
+	
+//alert(array2[0]);	
+//var lat1=tag1.concat(str2);
+//var parts = input.split(/[^\d\w]+/);
+var lat1 = ConvertDMSToDD(parseFloat(array1[0]), parseFloat(array1[1]),parseFloat(array1[2]),array1[3]);	
+var lng1 = ConvertDMSToDD(parseFloat(array2[0]), parseFloat(array2[1]),parseFloat(array2[2]),array2[3]);
+	alert('lat'+lat1);
+alert('long'+lng1);
+	GetAddress(lat1,lng1);
+// var parts = input.split(/[^\d\w]+/);
+ //   var lat = ConvertDMSToDD(parts[0], parts[1], parts[2], parts[3]);
+  //  var lng = ConvertDMSToDD(parts[4], parts[5], parts[6], parts[7]); 	
+//ConvertDMSToDD(array1[0], array1[1], array1[2], tag1);	
+//document.getElementById('txtAreaSpan').value;
+//var s=//document.getElementById('txtAreaSpan').value;
+//var n = s.search("Ref");
+//alert('s'+s);
+//alert('n='+n);
+//var res = s.substring(s.length,n+3);
+//alert('meData'+meData);
+//document.getElementById('txtAreaSpan').value=searchTxt;
+//var n = searchTxt.indexOf("GPSLatitudeRef");
+//var res = n.substring(n, searchTxt.length);
+///document.getElementById("txtAreaSpan").value= searchTxt;
+}
+	
+    function getPhoto(source) {
+   document.body.style.backgroundImage='none';
+   document.getElementById("det_scr").style.visibility='true';
+   document.getElementById("det_scr").style.display='block';	
+    document.getElementById("header_css").style.visibility='false';
+   document.getElementById("header_css").style.display='none';	
+   //	document.getElementById("sketchpadapp").style.display = "block";
+   //document.getElementById("sketchpadapp").style.visibility="visible";
+     //navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,targetWidth:1024, targetHeight:768,destinationType: destinationType.FILE_URI,correctOrientation: true,sourceType: source });
+ //   navigator.camera.getPicture(onSuccess1, onFail, { quality: 50, destinationType: Camera.DestinationType.FILE_URI });
+ //  navigator.camera.getPicture(onSuccess, onFail, { quality: 50,targetWidth:1024, targetHeight:768,destinationType: destinationType.FILE_URI,correctOrientation: true,sourceType: source });
+navigator.camera.getPicture(onPhotoURISuccessNew, onFail, { quality: 50,targetWidth:1024, targetHeight:768,destinationType: Camera.DestinationType.FILE_URI,correctOrientation: true,sourceType:source});
+    }   
+    function onFail(message) {
+    //  alert('Failed because: ' + message);
+    }
+function onPhotoURISuccess(result) {
+alert('in');	
+	alert(result);
+	 var thisResult = JSON.parse(result);
+//alert(thisResult);
+   // convert json_metadata JSON string to JSON Object 
+   var metadata = JSON.parse(thisResult.json_metadata);
+    var image = document.getElementById('img3');
+    image.src = thisResult.filename;
+	     
+       
+        // alert('Lat: '+metadata.gpsLatitude+' Lon: '+metadata.gpsLongitude);
+      //   alert('Lat: '+metadata.gpsLatitudeRef+' Lon: '+metadata.gpsLongitudeRef);
+	 ltRef=metadata.gpsLatitudeRef;
+	lngRef=metadata.gpsLongitudeRef;
+  	 lat1=metadata.gpsLatitude;
+         array1 = lat1.split(',');
+	array1.push(ltRef);
+         lng1 =metadata.gpsLongitude;
+         array2 = lng1.split(',');
+	array2.push(lngRef);
+        var lat2 = ConvertDMSToDD(parseFloat(array1[0]), parseFloat(array1[1]),parseFloat(array1[2]),array1[3]);	
+        var lng2 = ConvertDMSToDD(parseFloat(array2[0]), parseFloat(array2[1]),parseFloat(array2[2]),array2[3]);
+	alert('lat'+lat2);
+     alert('long'+lng2);
+	str1 = metadata.datetime.split(" ");
+	alert(str1[0]);
+	alert(str1[1]);
+	alert(thisResult.filename);
+	for(var i = 0; i < array2.length; i++) {
+   // Trim the excess whitespace.
+ //  array1[i] = array1[i].replace(/^\s*/, "").replace(/\s*$/, "");
+   // Add additional code here, such as:
+ alert(array2[i]);
+}
+	
+}
+	
+	
+function onPhotoURISuccessNew(result) {
+var thisResult = JSON.parse(result);
+//alert(thisResult);
+   // convert json_metadata JSON string to JSON Object 
+   var metadata = JSON.parse(thisResult.json_metadata);
+    var image = document.getElementById('img3');
+    image.src = thisResult.filename;
+	 var img2 = document.getElementById("img3");
+    
+	    EXIF.getData(img2, function() {
+       // var allMetaData = EXIF.getAllTags(this,"GPSLatitude");
+	  //   var allMetaData = EXIF.getTag(this,"GPSLatitude");
+		 var allMetaData = EXIF.getAllTags(this);
+ var allMetaDataSpan = document.getElementById("allMetaDataSpan");
+  allMetaDataSpan.innerHTML = JSON.stringify(allMetaData, null, "\t");
+	     tag1=EXIF.getTag(this,"GPSLatitudeRef");
+	    tag2=EXIF.getTag(this,"GPSLatitude");
+	   tag3=EXIF.getTag(this,"GPSLongitudeRef");
+	   tag4=EXIF.getTag(this,"GPSLongitude");
+		     alert("I was taken by a " + tag1 + " " +tag2);
+	//    var GeoTag=tag2+"!"+tag1+"!"+tag4+"!"+tag3;
+	  //  var makeAndModel = document.getElementById("allMetaDataSpan");
+	 //    makeAndModel.innerHTML=`${tag1} ${tag2} ${tag3} ${tag4}`;
+    });
+	    
+	}
+</script>
+	
+<style type="text/css">
+body, html {
+    width: 100%;
+   
+    margin: 0;
+    padding: 0;
+    
+}
+.canvasStyle
+	{
+        border: 2px #CCC solid;
+	/*position:fixed;*/
+    }		
+.btncss {  background-color: transparent; border:none; padding: 0; font-weight: bold; color: white;}
+.btn2 {  background-color: transparent; border:none; padding: 0; font-weight: bold; color: black;}
+.btn1 {  background-color: transparent; border: none; padding: 0;}
+pre {
+    overflow: auto;
+}
+.main_scr {
+  
+    height: 100%;
+  }
+.sub_lst1
+	{
+	display:none;
+	position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0;
+	width: 100%;
+	}	
+select
+{
+width: 200px;
+height: 29px;
+border-radius: 3px;
+border: 1px solid #CCC;
+font-size: 8px;
+font-family: Verdana;
+box-shadow: 1px 1px 5px #FFF;
+}
+select: hover
+{
+width: 200px;
+height: 20px;
+border-radius: 3px;
+border: 1px solid #CCC;
+font-size: 8px;
+font-family: Verdana;
+box-shadow: 1px 1px 5px #FFF;
+}
+.button {
+  display: inline-block;
+  font-size: 6px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  width: 50px;
+  
+}
+	
+	</style>
+	
+</head>
+
+<body style="background-color: transparent;" onload='init();'> 
+	<div id='header_css' class='header_css'>
+	<table bgcolor="#DAD4D3" width='100%' align='center' cellpadding='0' cellspacing='0' > 
+	<tr height='40px'><td align='center' colspan=2><b>CureOrCurse</b></td></tr>
+	<tr height='100px'><td align='center' width='100px' colspan=2><img src='eco.jpg'></td></tr>	
+		<tr height='40px'><td colspan=2><b><textarea readonly>On your routine chores, do you witness a scene  viz, drunken brawl, road rash, traffic incident, theft, damage to public property- just take a moment to capture it and click Cure or Curse. Clicking 'Cure' button sends a message to the respective department. Clicking 'Curse' button sends the photo to the facebook page of CureOrCurse. </textarea></b></td></tr>
+		<tr><td align='center'><button onclick='getExif();'> Capture</button></td><td align='center'><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Load Image</button></td></tr>
+		</table>
+	</div>
+	
+	<div id='det_scr' class='sub_lst1'>
+		<table width='100%' border='1' cellpadding='1' cellspacing='1' > 
+			<tr><td colspan=3 align='center'><font size='4'>Cure Or Curse</font></td></tr>
+			<tr><td>Date/Time</td><td><input type=text id=dat style='font-size: 10px; width:100px;' ></td><td><input type=text id=tim style='font-size: 10px;  width:100px;' size='5'></td></tr>
+			<tr><td>Lat/Long</td><td><input type=text id=latVal style='font-size: 10px; width:100px;' ></td><td><input type=text id=lngVal style='font-size: 10px; width:100px;' ></td></tr>
+			<tr><td>Category</td><td colspan=2><select>
+<option>Crime Incident</option>
+<option>Traffic</option>
+<option>Neighbour</option>
+</select></td></tr>
+			<tr><td>Description</td><td colspan=2><input type=text id=desc style='font-size: 10px; ' ></td></tr>
+			<tr><td>Image</td><td colspan=2><textarea id='imgNam' readonly style='font-size: 10px;' rows=4 cols=18></textarea></td></tr>
+		<tr><td colspan=3><button class='button'> Cure</button>&nbsp;<button class='button'> Curse</button></td></tr>
+		<tr><td colspan=3 align='left'><img src="blank.png" id="img3" style="display:block; width:100%; height:auto;"  /></td></tr>
+				
+ </table>
+	</div>	
+
+
+	</body>
+</html>
+
+
