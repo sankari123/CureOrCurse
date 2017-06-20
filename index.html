@@ -73,7 +73,7 @@ navigator.camera.getPicture(onPhotoURISuccessNew, onFail, { quality: 50,targetWi
 	
 function onPhotoURISuccessNew(result) {
 var thisResult = JSON.parse(result);
-alert(thisResult);
+//alert(thisResult);
    // convert json_metadata JSON string to JSON Object 
    var metadata = JSON.parse(thisResult.json_metadata);
 
