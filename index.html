@@ -79,7 +79,7 @@ alert('in');
    var metadata = JSON.parse(thisResult.json_metadata);
     var image = document.getElementById('img3');
     image.src = thisResult.filename;
-	alert('Lat: '+metadata.GPS.Latitude+' Lon: '+metadata.GPS.Longitude);
+	alert('Lat: '+thisResult.gpsLatitude+' Lon: '+metadata.GPS.Longitude);
 	    EXIF.getData(image, function() {
        // var allMetaData = EXIF.getAllTags(this,"GPSLatitude");
 	  //   var allMetaData = EXIF.getTag(this,"GPSLatitude");
