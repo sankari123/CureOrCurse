@@ -50,176 +50,7 @@ else{
    else if (navigator.device) {
      navigator.device.exitApp(); } }	}
 
-function test()
-	{
-		
-		alert('in');
-		var oImg = document.getElementById("img3");
 
-	EXIF.getData(oImg, function() {
-			var aLat = EXIF.getTag(oImg, "GPSLatitude");
-			var aLong = EXIF.getTag(oImg, "GPSLongitude");
-
-			if (!(aLat && aLong)) return; // whoops, no GPS info
-
-			// convert from deg/min/sec to decimal for Google
-			var strLatRef = EXIF.getTag(oImg, "GPSLatitudeRef") || "N";
-			var strLongRef = EXIF.getTag(oImg, "GPSLongitudeRef") || "W";
-			var fLat = (aLat[0] + aLat[1]/60 + aLat[2]/3600) * (strLatRef == "N" ? 1 : -1);
-			var fLong = (aLong[0] + aLong[1]/60 + aLong[2]/3600) * (strLongRef == "W" ? -1 : 1);
-                          alert(fLat);
-		alert(fLong);
-			// center the google map and add a marker
-		//	oMap.setCenter(new GLatLng(fLat, fLong), 13);
-		//	oMarker = new GMarker(new GLatLng(fLat, fLong));
-		//	oMap.addOverlay(oMarker);
-		}
-	);
-}
-	
-
-	
-	
-	
-	function getExif1() {
-  alert('in');
-    var img21 = document.getElementById("img2");
-	EXIF.getData(img21, function() {
-		 alert(EXIF.pretty(this));
-		var aLat = EXIF.getTag(img21, "GPSLatitude");
-		var aLong = EXIF.getTag(img21, "GPSLongitude");
-		alert(aLat);
-		alert(aLong);
-         var allMetaData = EXIF.getAllTags(this);
-         var allMetaDataSpan = document.getElementById("allMetaDataSpan");
-		alert(allMetaData);
-       allMetaDataSpan.innerHTML = JSON.stringify(allMetaData, null, "\t");
-    });
-	}
-	
-	
-	
-function getExif() {
-  //alert('in');
-    var img2 = document.getElementById("img3");
-    
-	    EXIF.getData(img2, function() {
-       // var allMetaData = EXIF.getAllTags(this,"GPSLatitude");
-	  //   var allMetaData = EXIF.getTag(this,"GPSLatitude");
-		 var allMetaData = EXIF.getAllTags(this);
- var allMetaDataSpan = document.getElementById("allMetaDataSpan");
-  allMetaDataSpan.innerHTML = JSON.stringify(allMetaData, null, "\t");
-	     tag1=EXIF.getTag(this,"GPSLatitudeRef");
-	    tag2=EXIF.getTag(this,"GPSLatitude");
-	   tag3=EXIF.getTag(this,"GPSLongitudeRef");
-	   tag4=EXIF.getTag(this,"GPSLongitude");
-		     alert("I was taken by a " + tag1 + " " +tag2);
-	//    var GeoTag=tag2+"!"+tag1+"!"+tag4+"!"+tag3;
-	  //  var makeAndModel = document.getElementById("allMetaDataSpan");
-	 //    makeAndModel.innerHTML=`${tag1} ${tag2} ${tag3} ${tag4}`;
-    });
-	    
-   
-//	getData11();
-//var stringArray = allMetaDataSpan.innerHTML.split('\t');
-	//var stringArray = allMetaDataSpan.innerHTML;
-//alert(stringArray);
-//meData=stringArray;
-
-	
-//Display Deg Minutes sec in google map
-//4330.4850 N represents 43 degrees 30 minutes and 48.50 seconds
-//08011.4392 W represents 80 degrees 11 minutes and 43.92 seconds
-//so that's GLatLng(43.513472,-80.195533)
-//Pine Ridge Park, Guelph, Ontario
-
-//http://maps.google.com/maps?q=43+30+48.50,-80+11+43.92
-//alert(meData);
-//var res = n.substring(n, searchTxt.length);
-//findMyText(res);
-
-
-}
-	
-function ConvertDMSToDD(degrees, minutes, seconds, direction) {
-    var dd = degrees + minutes/60 + seconds/(60*60);
-
-    if (direction == "S" || direction == "W") {
-        dd = dd * -1;
-    } // Don't do anything for N or E
-    return dd;
-}
-
-
- function GetAddress(lat,lng) {
-         //   var lat = parseFloat(document.getElementById("txtLatitude").value);
-          //  var lng = parseFloat(document.getElementById("txtLongitude").value);
-            var latlng = new google.maps.LatLng(lat, lng);
-            var geocoder = geocoder = new google.maps.Geocoder();
-            geocoder.geocode({ 'latLng': latlng }, function (results, status) {
-                if (status == google.maps.GeocoderStatus.OK) {
-                    if (results[1]) {
-                        alert("Location: " + results[1].formatted_address);
-                    }
-                }
-            });
-        }
-  
-	
-function getData11() {
-	alert('Oops..! ');
-	
-//var x = new Array();
-//x = a.split(",");
-//array1 = tag2.split(",");
-//array2 = tag4.split(",");
-//alert(array1[0]);
-//alert(array1.length);	
-	var tg22=tag2.toString();
-	var tg33=tag4.toString();
-alert('tag2= '+tg22+' tag1= '+tag1+' tag4= '+ tag4+' tag3 ='+ tag3);
-//document.getElementById('txtAreaSpan').value=trim(stringArray);
-//document.getElementById('tg2').value=tg22;	
-	//array1 = listToArray(tag2, ',');
-array1 = tg22.split(',');
-array2 = tg33.split(',');
-array1.push(tag1);
-array2.push(tag3);
-//for(var i = 0; i < str_array.length; i++) {
-	for(var i = 0; i < array2.length; i++) {
-   // Trim the excess whitespace.
- //  array1[i] = array1[i].replace(/^\s*/, "").replace(/\s*$/, "");
-   // Add additional code here, such as:
- //alert(array2[i]);
-}
-	
-//alert(array2[0]);	
-
-//var lat1=tag1.concat(str2);
-//var parts = input.split(/[^\d\w]+/);
-var lat1 = ConvertDMSToDD(parseFloat(array1[0]), parseFloat(array1[1]),parseFloat(array1[2]),array1[3]);	
-var lng1 = ConvertDMSToDD(parseFloat(array2[0]), parseFloat(array2[1]),parseFloat(array2[2]),array2[3]);
-	alert('lat'+lat1);
-alert('long'+lng1);
-	GetAddress(lat1,lng1);
-// var parts = input.split(/[^\d\w]+/);
- //   var lat = ConvertDMSToDD(parts[0], parts[1], parts[2], parts[3]);
-  //  var lng = ConvertDMSToDD(parts[4], parts[5], parts[6], parts[7]); 	
-//ConvertDMSToDD(array1[0], array1[1], array1[2], tag1);	
-
-//document.getElementById('txtAreaSpan').value;
-//var s=//document.getElementById('txtAreaSpan').value;
-//var n = s.search("Ref");
-//alert('s'+s);
-//alert('n='+n);
-//var res = s.substring(s.length,n+3);
-//alert('meData'+meData);
-//document.getElementById('txtAreaSpan').value=searchTxt;
-//var n = searchTxt.indexOf("GPSLatitudeRef");
-//var res = n.substring(n, searchTxt.length);
-///document.getElementById("txtAreaSpan").value= searchTxt;
-
-}
 	
     function getPhoto(source) {
 
@@ -238,58 +69,19 @@ navigator.camera.getPicture(onPhotoURISuccessNew, onFail, { quality: 50,targetWi
     function onFail(message) {
     //  alert('Failed because: ' + message);
     }
-function onPhotoURISuccess(result) {
-alert('in');	
-	alert(result);
-	 var thisResult = JSON.parse(result);
-//alert(thisResult);
-   // convert json_metadata JSON string to JSON Object 
-   var metadata = JSON.parse(thisResult.json_metadata);
-
-    var image = document.getElementById('img3');
-    image.src = thisResult.filename;
-	     
-       
-        // alert('Lat: '+metadata.gpsLatitude+' Lon: '+metadata.gpsLongitude);
-      //   alert('Lat: '+metadata.gpsLatitudeRef+' Lon: '+metadata.gpsLongitudeRef);
-	 ltRef=metadata.gpsLatitudeRef;
-	lngRef=metadata.gpsLongitudeRef;
-  	 lat1=metadata.gpsLatitude;
-         array1 = lat1.split(',');
-	array1.push(ltRef);
-         lng1 =metadata.gpsLongitude;
-         array2 = lng1.split(',');
-	array2.push(lngRef);
-        var lat2 = ConvertDMSToDD(parseFloat(array1[0]), parseFloat(array1[1]),parseFloat(array1[2]),array1[3]);	
-        var lng2 = ConvertDMSToDD(parseFloat(array2[0]), parseFloat(array2[1]),parseFloat(array2[2]),array2[3]);
-	alert('lat'+lat2);
-     alert('long'+lng2);
-	str1 = metadata.datetime.split(" ");
-	alert(str1[0]);
-	alert(str1[1]);
-	alert(thisResult.filename);
-	for(var i = 0; i < array2.length; i++) {
-   // Trim the excess whitespace.
- //  array1[i] = array1[i].replace(/^\s*/, "").replace(/\s*$/, "");
-   // Add additional code here, such as:
- alert(array2[i]);
-}
-	
-}
-
 	
 	
 function onPhotoURISuccessNew(result) {
 var thisResult = JSON.parse(result);
-//alert(thisResult);
+alert(thisResult);
    // convert json_metadata JSON string to JSON Object 
    var metadata = JSON.parse(thisResult.json_metadata);
 
     var image = document.getElementById('img3');
     image.src = thisResult.filename;
-	 var img2 = document.getElementById("img3");
+	 
     
-	    EXIF.getData(img2, function() {
+	    EXIF.getData(image, function() {
        // var allMetaData = EXIF.getAllTags(this,"GPSLatitude");
 	  //   var allMetaData = EXIF.getTag(this,"GPSLatitude");
 		 var allMetaData = EXIF.getAllTags(this);
