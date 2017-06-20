@@ -53,6 +53,7 @@ else{
 function test()
 	{
 		
+		alert('in');
 		var oImg = document.getElementById("img3");
 
 	EXIF.getData(oImg, function() {
@@ -100,7 +101,7 @@ function test()
 	
 function getExif() {
   //alert('in');
-    var img2 = document.getElementById("img2");
+    var img2 = document.getElementById("img3");
     
 	    EXIF.getData(img2, function() {
        // var allMetaData = EXIF.getAllTags(this,"GPSLatitude");
@@ -286,7 +287,7 @@ var thisResult = JSON.parse(result);
 
     var image = document.getElementById('img3');
     image.src = thisResult.filename;
-	test();     
+	getExif();
 	}
 </script>
 	
